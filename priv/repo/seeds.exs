@@ -54,9 +54,13 @@ end
 alias BeExercise.Enum.Currencies
 alias BeExercise.Repo
 
+require Logger
+
 expected_rows = Application.compile_env!(:be_exercise, :test_rows)
 
 names = BEChallengex.list_names()
+
+Logger.debug("Start seeding...")
 
 for i <- 1..expected_rows do
   names
@@ -75,3 +79,5 @@ for i <- 1..expected_rows do
   end
   |> Enum.map(&(i |> Helpers.create_salary(&1) |> Repo.insert!()))
 end
+
+Logger.debug("End seeding...")

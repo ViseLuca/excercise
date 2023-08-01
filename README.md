@@ -92,6 +92,7 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 - The last salary updated (`updated_at` field) is the most recent one
 - The queryParam to filter by name is `name`
 - The queryParam to order the list is `orderBy` expecting `asc/desc` parameters, if a not valid parameter is sent the default is `asc`
+- Having just 1 query per entity (user, salary) I avoided to create a separated module (context) to write them.
 
 ### Code maintenance and style
 I have added 2 dependencies `credo` and `dialyzer` to check code style and for maintenance.

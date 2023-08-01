@@ -1,6 +1,6 @@
 defmodule BeExercise.Entity.User do
   @moduledoc """
-  Schema for User table
+  Schema for Users table
   """
 
   use Ecto.Schema
@@ -16,7 +16,7 @@ defmodule BeExercise.Entity.User do
           updated_at: NaiveDateTime.t()
         }
 
-  schema "user" do
+  schema "users" do
     field(:name, :string)
 
     timestamps()

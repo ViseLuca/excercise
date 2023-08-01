@@ -122,8 +122,8 @@ defmodule BeExerciseWeb.UserControllerTest do
          %{
            conn: conn
          } do
-      Repo.query("TRUNCATE \"salary\"", [])
-      Repo.query("TRUNCATE \"user\"", [])
+      Repo.query("TRUNCATE \"salaries\"", [])
+      Repo.query("TRUNCATE \"users\"", [])
 
       conn = get(conn, ~p"/users")
       response = Jason.decode!(conn.resp_body)

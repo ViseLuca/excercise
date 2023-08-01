@@ -1,6 +1,6 @@
 defmodule BeExercise.Entity.Salary do
   @moduledoc """
-  Schema for Salary table
+  Schema for Salaries table
   """
 
   require Logger
@@ -21,7 +21,7 @@ defmodule BeExercise.Entity.Salary do
           updated_at: NaiveDateTime.t()
         }
 
-  schema "salary" do
+  schema "salaries" do
     field(:amount, :string)
     field(:currency, :string)
     field(:user_id, :integer)

@@ -7,8 +7,6 @@ defmodule BeExercise.Infrastructure.SendEmail do
 
   require Logger
 
-  @chunk_size 1000
-
   @doc """
   Send the email of all the active users retrieved from database. The response is a tuple with the number
     of total email and the number of email in error
@@ -26,28 +24,28 @@ defmodule BeExercise.Infrastructure.SendEmail do
     total_email = length(all_active_users)
 
     all_active_users
-    |> Enum.chunk_every(@chunk_size)
-    |> Enum.map(&Task.async(fn -> send_emails(&1) end))
-    |> Enum.reduce([], &(&2 ++ Task.await(&1)))
+    |> Task.async_stream(&send_email(&1))
+    |> Enum.reduce([], fn
+      {:ok, _}, acc -> acc
+      {:error, name}, acc -> acc ++ [name]
+    end)
     |> length()
     |> then(&Tuple.append({total_email}, &1))
   end
 
-  defp send_emails(emails) do
-    Enum.reduce(emails, [], fn name, errors ->
-      %{name: name}
-      |> BEChallengex.send_email()
-      |> manage_email_response(name, errors)
-    end)
+  defp send_email(email) do
+    %{name: email}
+    |> BEChallengex.send_email()
+    |> manage_email_response(email)
   end
 
-  defp manage_email_response({:ok, _}, name, email_errors) do
+  defp manage_email_response({:ok, _}, name) do
     Logger.info("Email sent to #{name}")
-    email_errors
+    {:ok, name}
   end
 
-  defp manage_email_response({:error, error}, name, email_errors) do
+  defp manage_email_response({:error, error}, name) do
     Logger.error("Email NOT sent to #{name} due to error: #{inspect(error)}")
-    email_errors ++ [name]
+    {:error, name}
   end
 end
