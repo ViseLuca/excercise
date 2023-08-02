@@ -25,3 +25,6 @@ Examples to extract users:
 
 Example to send email:
 - `curl --request POST --url http://localhost:4000/invite-users`
+
+Example of the api exposes:
+- http://localhost:4000/swagger

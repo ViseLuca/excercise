@@ -12,6 +12,7 @@ defmodule BeExerciseWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug OpenApiSpex.Plug.PutApiSpec, module: BeExercise.ApiSpec
   end
 
   scope "/", BeExerciseWeb do
@@ -20,6 +21,17 @@ defmodule BeExerciseWeb.Router do
     get "/", PageController, :ping
     get "/users", UserController, :get_users
     post "/invite-users", EmailController, :invite_users
+  end
+
+  scope "/api" do
+    pipe_through :api
+    get "/openapi", OpenApiSpex.Plug.RenderSpec, []
+  end
+
+  scope "/swagger" do
+    pipe_through(:browser)
+
+    get("/", OpenApiSpex.Plug.SwaggerUI, path: "/api/openapi")
   end
 
   # Other scopes may use custom stacks.
