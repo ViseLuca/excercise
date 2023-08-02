@@ -6,7 +6,6 @@ defmodule BeExerciseWeb.EmailController do
   import Plug.Conn
 
   alias BeExercise.Infrastructure.SendEmail
-  alias BeExerciseWeb.Controller.Helpers
 
   alias BeExercise.OpenApi.Response.Email, as: EmailResponse
   alias OpenApiSpex.Operation
@@ -35,16 +34,6 @@ defmodule BeExerciseWeb.EmailController do
 
   @spec invite_users(Plug.Conn.t(), map()) :: Plug.Conn.t()
   def invite_users(conn, _params) do
-    SendEmail.to_all_active_users()
-    |> get_message_for_response()
-    |> then(&Helpers.send_response(conn, 200, &1))
-  end
-
-  defp get_message_for_response({total_email, email_not_sent}) do
-    case {total_email, email_not_sent} do
-      {0, _} -> %{message: "No email sent"}
-      {total, sent} when sent > 0 -> %{message: "#{total - sent} email sent, #{sent} not sent"}
-      {total, _} -> %{message: "#{total} email sent"}
-    end
+    render(conn, :show_response, response: SendEmail.to_all_active_users())
   end
 end

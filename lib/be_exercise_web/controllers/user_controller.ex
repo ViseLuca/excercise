@@ -6,7 +6,6 @@ defmodule BeExerciseWeb.UserController do
 
   alias BeExercise.Entity.Salary
   alias BeExercise.OpenApi.Response.User, as: UserResponse
-  alias BeExerciseWeb.Controller.Helpers
   alias OpenApiSpex.Operation
 
   require Logger
@@ -38,20 +37,6 @@ defmodule BeExerciseWeb.UserController do
   def get_users(conn, params) do
     params
     |> Salary.get_active_or_the_most_recent_salaries()
-    |> format_for_response()
-    |> then(&Helpers.send_response(conn, 200, &1))
-  end
-
-  defp format_for_response([] = salaries_list) do
-    Logger.warning("No user found")
-    salaries_list
-  end
-
-  defp format_for_response(salaries_list) do
-    Logger.info("#{length(salaries_list)} users found")
-
-    Enum.map(salaries_list, fn %{name: name, amount: salary, currency: currency} ->
-      %{name: name, salary: "#{salary} #{currency}"}
-    end)
+    |> then(&render(conn, :show_users_and_salaries, users: &1))
   end
 end

@@ -34,6 +34,12 @@ defmodule BeExerciseWeb.Router do
     get("/", OpenApiSpex.Plug.SwaggerUI, path: "/api/openapi")
   end
 
+  scope "/", BeExerciseWeb do
+    pipe_through(:api)
+
+    match(:*, "/*path", PageController, :not_found)
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", BeExerciseWeb do
   #   pipe_through :api
