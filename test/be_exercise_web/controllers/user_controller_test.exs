@@ -81,10 +81,10 @@ defmodule BeExerciseWeb.UserControllerTest do
            conn: conn
          } do
       %{id: id} = Repo.insert!(Factory.create_user(@name))
-      active_amount = 48000.00
+      active_amount = 48_000.00
       expected_amount = "#{active_amount} #{@eur_currency}"
       Repo.insert!(Factory.create_salary(active_amount, @eur_currency, id, true))
-      Repo.insert!(Factory.create_salary(65000.00, @eur_currency, id, false))
+      Repo.insert!(Factory.create_salary(65_000.00, @eur_currency, id, false))
 
       conn = get(conn, ~p"/users")
       response = Jason.decode!(conn.resp_body)
@@ -102,10 +102,10 @@ defmodule BeExerciseWeb.UserControllerTest do
          } do
       %{id: id} = Repo.insert!(Factory.create_user(@name))
 
-      last_amount = 95959.00
+      last_amount = 95_959.00
       expected_amount = "#{last_amount} #{@gbp_currency}"
 
-      Repo.insert!(Factory.create_salary(19591.00, @eur_currency, id, false))
+      Repo.insert!(Factory.create_salary(19_591.00, @eur_currency, id, false))
       Repo.insert!(Factory.create_salary(last_amount, @gbp_currency, id, false, 100))
 
       conn = get(conn, ~p"/users")

@@ -12,6 +12,8 @@ defmodule BeExerciseWeb.EmailController do
 
   require Logger
 
+  action_fallback BeExerciseWeb.FallbackController
+
   @spec open_api_operation(any) :: Operation.t()
   def open_api_operation(action) do
     operation = String.to_existing_atom("#{action}_operation")
