@@ -36,7 +36,7 @@ defmodule BeExerciseWeb.EmailControllerTest do
           %{name: name} -> {:ok, name}
         end do
         %{id: id} = Repo.insert!(Factory.create_user(@name))
-        Repo.insert!(Factory.create_salary("65000.0", @eur_currency, id, true))
+        Repo.insert!(Factory.create_salary(65000.0, @eur_currency, id, true))
 
         conn = post(conn, ~p"/invite-users")
         response = Jason.decode!(conn.resp_body)

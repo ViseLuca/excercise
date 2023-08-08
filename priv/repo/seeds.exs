@@ -11,8 +11,6 @@
 # and so on) as they will fail if something goes wrong.
 
 defmodule Helpers do
-  alias BeExercise.Entity.Salary
-  alias BeExercise.Entity.User
   alias BeExercise.Enum.Currencies
 
   @currencies Currencies.get()
@@ -20,7 +18,7 @@ defmodule Helpers do
   def create_user(name) do
     NaiveDateTime.utc_now()
     |> NaiveDateTime.truncate(:second)
-    |> then(&%User{name: name, inserted_at: &1, updated_at: &1})
+    |> then(&%{name: name, inserted_at: &1, updated_at: &1})
   end
 
   defp random_float() do
@@ -37,9 +35,9 @@ defmodule Helpers do
       |> NaiveDateTime.truncate(:second)
 
     random_float()
-    |> :erlang.float_to_binary(decimals: 2)
+    |> Float.round(2)
     |> then(
-      &%Salary{
+      &%{
         amount: &1,
         currency: currency,
         user_id: user_id,
@@ -51,6 +49,8 @@ defmodule Helpers do
   end
 end
 
+alias BeExercise.Entity.Salary
+alias BeExercise.Entity.User
 alias BeExercise.Enum.Currencies
 alias BeExercise.Repo
 
@@ -62,22 +62,37 @@ names = BEChallengex.list_names()
 
 Logger.debug("Start seeding...")
 
-for i <- 1..expected_rows do
-  names
-  |> List.pop_at(rem(i, length(names)))
-  |> elem(0)
-  |> Helpers.create_user()
-  |> Repo.insert!()
+{users, salaries} =
+  Enum.reduce(1..expected_rows, {[], []}, fn i, {users, salaries} ->
+    users =
+      names
+      |> List.pop_at(rem(i, length(names)))
+      |> elem(0)
+      |> Helpers.create_user()
+      |> List.wrap()
+      |> Kernel.++(users)
 
-  i
-  |> :rand.uniform()
-  |> rem(3)
-  |> case do
-    0 -> [true, false]
-    1 -> [false, true]
-    2 -> [false, false]
-  end
-  |> Enum.map(&(i |> Helpers.create_salary(&1) |> Repo.insert!()))
-end
+    salaries =
+      i
+      |> :rand.uniform()
+      |> rem(3)
+      |> case do
+        0 -> [true, false]
+        1 -> [false, true]
+        2 -> [false, false]
+      end
+      |> Enum.map(&(i |> Helpers.create_salary(&1)))
+      |> Kernel.++(salaries)
+
+    {users, salaries}
+  end)
+
+users
+|> Enum.chunk_every(1000)
+|> Enum.map(&Repo.insert_all(User, &1))
+
+salaries
+|> Enum.chunk_every(1000)
+|> Enum.map(&Repo.insert_all(Salary, &1))
 
 Logger.debug("End seeding...")

@@ -13,7 +13,7 @@ defmodule BeExercise.Entity.Salary do
   alias BeExercise.Repo
 
   @type t :: %__MODULE__{
-          amount: String.t(),
+          amount: float(),
           currency: String.t(),
           user_id: integer(),
           active: boolean(),
@@ -22,10 +22,11 @@ defmodule BeExercise.Entity.Salary do
         }
 
   schema "salaries" do
-    field(:amount, :string)
+    field(:amount, :float)
     field(:currency, :string)
     field(:user_id, :integer)
     field(:active, :boolean)
+    belongs_to :users, User
 
     timestamps()
   end
@@ -37,8 +38,8 @@ defmodule BeExercise.Entity.Salary do
   - `params` (map) - The query parameters including `name` and `orderBy`.
 
   ## Examples
-      iex> __MODULE__.get_active_or_the_most_recent_salaries(%{"name" => "John", "orderBy" => "asc"})
-      [%{name: "Luca", amount: "48.000,0", currency: "EUR"}]
+      iex> __MODULE__.get_active_or_the_most_recent_salaries(%{"name" => "Luca", "orderBy" => "asc"})
+      [%{name: "Luca", amount: 48000.0, currency: "EUR"}]
   """
   @spec get_active_or_the_most_recent_salaries(map()) :: [t()]
   def get_active_or_the_most_recent_salaries(params) do
