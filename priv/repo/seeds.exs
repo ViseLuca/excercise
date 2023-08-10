@@ -88,11 +88,11 @@ Logger.debug("Start seeding...")
   end)
 
 users
-|> Enum.chunk_every(1000)
+|> Enum.chunk_every(5000)
 |> Enum.map(&Repo.insert_all(User, &1))
 
 salaries
-|> Enum.chunk_every(1000)
+|> Enum.chunk_every(5000)
 |> Enum.map(&Repo.insert_all(Salary, &1))
 
 Logger.debug("End seeding...")

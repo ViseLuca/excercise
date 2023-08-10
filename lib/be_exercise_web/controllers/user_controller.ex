@@ -4,7 +4,7 @@ defmodule BeExerciseWeb.UserController do
   import Phoenix.Controller
   import Plug.Conn
 
-  alias BeExercise.Entity.Salary
+  alias BeExercise.Context.Salary
   alias BeExercise.OpenApi.Response.User, as: UserResponse
   alias OpenApiSpex.Operation
 

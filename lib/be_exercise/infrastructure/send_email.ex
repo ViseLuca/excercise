@@ -3,7 +3,7 @@ defmodule BeExercise.Infrastructure.SendEmail do
       Module created to send email using the BEChallengex library
       and retrieving data from database
   """
-  alias BeExercise.Entity.User
+  alias BeExercise.Context.User
 
   require Logger
 
