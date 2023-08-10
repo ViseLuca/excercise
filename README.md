@@ -84,7 +84,6 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 ### Assumptions
 - The user has just a single column in database, in this case filled by the name for library
 - The name could be repeated
-- Salaries are stored as strings, because we have just to read/write them and not to do some calculation
 - Currency is in a separated column and is registered with the code ISO 4217
 - Currency is reported in the JSON with the code ISO 4217 after the amount in the same string
 - Each User could have just a salary active in the Salary table, checked during the insertion function (out of scope)

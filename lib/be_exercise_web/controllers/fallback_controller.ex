@@ -4,7 +4,7 @@ defmodule BeExercise.FallbackController do
   def call(conn, _) do
     conn
     |> put_status(:not_found)
-    |> put_view(MyErrorView)
+    |> put_view(json: BeExerciseWeb.ErrorJSON)
     |> render(:"404")
   end
 end
