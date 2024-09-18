@@ -28,3 +28,5 @@ config :phoenix, :plug_init_mode, :runtime
 
 # number of rows inserted for tests
 config :be_exercise, test_rows: 10
+
+config :be_exercise, max_concurrency: 10

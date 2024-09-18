@@ -82,16 +82,14 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 ## Implementation details
 ### Assumptions
-- The user has just a single column in database, in this case filled by the name for library
-- The name could be repeated
+- The user has just a single column in database, in this case filled by the name from the library
 - Currency is in a separated column and is registered with the code ISO 4217
-- Currency is reported in the JSON with the code ISO 4217 after the amount in the same string
-- Each User could have just a salary active in the Salary table, checked during the insertion function (out of scope)
-- We don't need to know for how much time a salary was active
+- The amount is stored as an integer and the last 2 digits are the decimals `eg. 3200000 -> 32.000,00`, to avoid errors on floating point numbers in maths operations. How is explained [here](https://0.30000000000000004.com/)
+- The functionality to send invitations to users with an active salary is stateless, so if the API is called multiple time, multiple invitations will be sent.
+- The invitation sending is done synchronously but could be done in an asynchronous way using Oban to schedule a job and send the email in chunk.
 - The last salary updated (`updated_at` field) is the most recent one
-- The queryParam to filter by name is `name`
-- The queryParam to order the list is `orderBy` expecting `asc/desc` parameters, if a not valid parameter is sent the default is `asc`
-- If an email is sent, or not, I'm logging the name of the person but is recommended to not log PII (personally identifiable information)
+- The queryParam to filter by name is called `name` and is searching with an insensitive case if the are names starting with the parameter value 
+- The queryParam to order the list is `orderBy` expecting `asc/desc` parameters, if a not valid parameter is sent the default is `asc` 
 
 ### Code maintenance and style
 I have added 2 dependencies `credo` and `dialyzer` to check code style and for maintenance.
@@ -100,6 +98,10 @@ I have added 2 dependencies `credo` and `dialyzer` to check code style and for m
   type mismatch
 
 They can be run together executing `mix check` in the terminal.
+
+### API Spec
+When the server is running you can check the [swagger](http://localhost:4000/swagger) to have a look at the API, it can be used also
+from FE side (eg. Typescript) to generate the modules with types without using them manually
 
 ### How to run
 How to run information can be found in [docs/how_to_run.md](docs/how_to_run.md)

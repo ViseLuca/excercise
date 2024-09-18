@@ -4,9 +4,9 @@ defmodule Unit.BeExercise.Enum.Currencies do
   """
 
   use ExUnit.Case, async: true
+  @expected_currencies ["EUR", "USD", "JPY", "GBP", "SGD", "AUD"]
 
   alias BeExercise.Enum.Currencies
-  @expected_currencies ~w(EUR USD JPY GBP)
 
   test "Currently all available currencies are #{Kernel.length(@expected_currencies)} and are #{inspect(@expected_currencies)}" do
     available_currencies = Currencies.get()
@@ -15,10 +15,10 @@ defmodule Unit.BeExercise.Enum.Currencies do
   end
 
   test "The currency EUR is included in the available_currencies" do
-    assert Currencies.is_currency_available?("EUR")
+    assert Enum.member?(Currencies.get(), "EUR")
   end
 
-  test "The currency RP (Indonesian Rupiah) is included in the available_currencies" do
-    refute Currencies.is_currency_available?("RP")
+  test "The currency IDR (Indonesian Rupiah) is included in the available_currencies" do
+    refute Enum.member?(Currencies.get(), "IDR")
   end
 end

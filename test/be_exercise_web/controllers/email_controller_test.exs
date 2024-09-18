@@ -2,9 +2,10 @@ defmodule BeExerciseWeb.EmailControllerTest do
   use BeExerciseWeb.ConnCase, async: true
 
   import Mock
+  import OpenApiSpex.TestAssertions
 
   alias BeExercise.Entity.Salary
-  alias BeExercise.Factory
+  alias BeExercise.Fixtures
   alias BeExercise.Repo
 
   @name "Luca"
@@ -14,9 +15,11 @@ defmodule BeExerciseWeb.EmailControllerTest do
     test "check email(s) are sent", %{conn: conn} do
       conn = post(conn, ~p"/invite-users")
       response = Jason.decode!(conn.resp_body)
+      api_spec = BeExercise.ApiSpec.spec()
 
       assert json_response(conn, 200)
-      assert Regex.match?(~r/^\d+ email sent+/, response["message"])
+      assert Regex.match?(~r/^\d+ email sent+/, response["data"]["message"])
+      assert_schema(response, "EmailResponse", api_spec)
     end
 
     test "deactivate all the salary and check, no email is sent", %{conn: conn} do
@@ -24,9 +27,11 @@ defmodule BeExerciseWeb.EmailControllerTest do
 
       conn = post(conn, ~p"/invite-users")
       response = Jason.decode!(conn.resp_body)
+      api_spec = BeExercise.ApiSpec.spec()
 
       assert json_response(conn, 200)
-      assert "No email sent" == response["message"]
+      assert "No email sent" == response["data"]["message"]
+      assert_schema(response, "EmailResponse", api_spec)
     end
 
     test "During the email sending, one or more sending is failing", %{conn: conn} do
@@ -35,13 +40,15 @@ defmodule BeExerciseWeb.EmailControllerTest do
           %{name: "Luca"} -> {:error, :econnrefused}
           %{name: name} -> {:ok, name}
         end do
-        %{id: id} = Repo.insert!(Factory.create_user(@name))
-        Repo.insert!(Factory.create_salary(65_000.0, @eur_currency, id, true))
+        %{id: id} = Fixtures.insert_user(@name)
+        Fixtures.insert_salary(6_500_000, @eur_currency, id, true)
 
+        api_spec = BeExercise.ApiSpec.spec()
         conn = post(conn, ~p"/invite-users")
         response = Jason.decode!(conn.resp_body)
 
-        assert Regex.match?(~r/^\d+ email sent+(, \d+ not sent+)*$/, response["message"])
+        assert Regex.match?(~r/^\d+ email sent+(, \d+ not sent+)*$/, response["data"]["message"])
+        assert_schema(response, "EmailResponse", api_spec)
       end
     end
   end

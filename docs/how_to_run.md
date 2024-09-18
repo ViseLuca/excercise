@@ -2,7 +2,7 @@
 
 ## Seeding the database for tests
 The `seeds.ex` file reads the environment configuration `:test_rows` to determine how many rows should be inserted for seeding.
-The current configuration is `10` for tests and `20,000` for development.
+The current configuration is `10` for tests and `20.000` for development.
 
 To launch the tests you can run `MIX_ENV=test mix ecto.reset` to fill the database before running `mix test`.
 

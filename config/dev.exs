@@ -59,3 +59,5 @@ config :phoenix, :plug_init_mode, :runtime
 
 # number of rows inserted to launch the application
 config :be_exercise, test_rows: 20_000
+
+config :be_exercise, max_concurrency: 500

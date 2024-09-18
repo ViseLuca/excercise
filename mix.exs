@@ -38,8 +38,8 @@ defmodule BeExercise.MixProject do
   defp deps do
     [
       {:be_challengex, github: "remotecom/be_challengex", tag: "0.0.1"},
-      {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
-      {:dialyxir, "~> 1.1", only: [:dev, :test], runtime: false},
+      {:credo, "~> 1.7.7", only: [:dev, :test], runtime: false},
+      {:dialyxir, "~> 1.4.3", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.30.3", only: [:dev, :test, :staging], runtime: false},
       {:excoveralls, "~> 0.16.0", only: :test},
       {:ecto_sql, "~> 3.6"},

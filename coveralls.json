@@ -7,5 +7,12 @@
   ],
   "coverage_options": {
     "minimum_coverage": 80
-  }
+  },
+  "skip_files": [
+    "lib/api_spec.ex",
+    "lib/be_exercise.ex",
+    "lib/be_exercise/application.ex",
+    "lib/be_exercise_web/gettext.ex",
+    "lib/be_exercise_web/router.ex"
+    ]
 }

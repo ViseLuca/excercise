@@ -12,15 +12,15 @@ defmodule BeExercise.OpenApi.Schemas.User do
     type: :object,
     properties: %{
       name: %Schema{type: :string, description: "User name"},
-      salary: %Schema{type: :string, description: "Salary amount and currency"}
+      salary: %Schema{type: :integer, description: "Salary amount"},
+      currency: %Schema{type: :string, description: "Salary currency"}
     },
-    required: [:name, :salary],
-    example: [
-      %{
-        "name" => "Joe",
-        "salary" => "30000.0 EUR"
-      }
-    ]
+    required: [:name, :salary, :currency],
+    example: %{
+      "name" => "Joe",
+      "salary" => 3_000_000,
+      "currency" => "EUR"
+    }
   }
 
   def schema, do: @schema

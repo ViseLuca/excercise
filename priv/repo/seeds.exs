@@ -22,7 +22,7 @@ defmodule Helpers do
   end
 
   defp random_float() do
-    100_000 * :rand.uniform()
+    10_000_000 * :rand.uniform()
   end
 
   def create_salary(user_id, active) do
@@ -35,7 +35,7 @@ defmodule Helpers do
       |> NaiveDateTime.truncate(:second)
 
     random_float()
-    |> Float.round(2)
+    |> trunc()
     |> then(
       &%{
         amount: &1,
@@ -57,6 +57,7 @@ alias BeExercise.Repo
 require Logger
 
 expected_rows = Application.compile_env!(:be_exercise, :test_rows)
+max_concurrency = Application.compile_env!(:be_exercise, :max_concurrency)
 
 names = BEChallengex.list_names()
 
@@ -81,18 +82,44 @@ Logger.debug("Start seeding...")
         1 -> [false, true]
         2 -> [false, false]
       end
-      |> Enum.map(&(i |> Helpers.create_salary(&1)))
+      |> Enum.map(&Helpers.create_salary(i, &1))
       |> Kernel.++(salaries)
 
     {users, salaries}
   end)
 
 users
-|> Enum.chunk_every(5000)
-|> Enum.map(&Repo.insert_all(User, &1))
+|> Task.async_stream(&Repo.insert(%User{name: &1.name}), max_concurrency: max_concurrency)
+|> Enum.reduce([], fn
+  {:ok, _}, acc -> acc
+  {:error, name}, acc -> acc ++ [name]
+end)
+|> length()
+|> case do
+  0 -> "all users inserted"
+  errors -> "error while inserting users #{errors}"
+end
 
 salaries
-|> Enum.chunk_every(5000)
-|> Enum.map(&Repo.insert_all(Salary, &1))
+|> Task.async_stream(
+  &Repo.insert(%Salary{
+    amount: &1.amount,
+    currency: &1.currency,
+    user_id: &1.user_id,
+    active: &1.active,
+    inserted_at: &1.inserted_at,
+    updated_at: &1.updated_at
+  }),
+  max_concurrency: max_concurrency
+)
+|> Enum.reduce([], fn
+  {:ok, _}, acc -> acc
+  {:error, name}, acc -> acc ++ [name]
+end)
+|> length()
+|> case do
+  0 -> "all salaries inserted"
+  errors -> "error while inserting salaries #{errors}"
+end
 
 Logger.debug("End seeding...")

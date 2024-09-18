@@ -8,7 +8,7 @@ defmodule BeExercise.Entity.Salary do
   alias BeExercise.Entity.User
 
   @type t :: %__MODULE__{
-          amount: float(),
+          amount: integer(),
           currency: String.t(),
           user_id: integer(),
           active: boolean(),
@@ -17,7 +17,7 @@ defmodule BeExercise.Entity.Salary do
         }
 
   schema "salaries" do
-    field(:amount, :float)
+    field(:amount, :integer)
     field(:currency, :string)
     field(:user_id, :integer)
     field(:active, :boolean)

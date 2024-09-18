@@ -21,7 +21,7 @@ defmodule BeExercise.Context.Salary do
 
   ## Examples
       iex> __MODULE__.get_active_or_the_most_recent_salaries(%{"name" => "Luca", "orderBy" => "asc"})
-      [%{name: "Luca", amount: 48000.0, currency: "EUR"}]
+      [%{name: "Luca", amount: 4800000, currency: "EUR"}]
   """
   @spec get_active_or_the_most_recent_salaries(map()) :: [Salary.t()]
   def get_active_or_the_most_recent_salaries(params) do
@@ -44,7 +44,7 @@ defmodule BeExercise.Context.Salary do
       join: u in User,
       on: s.user_id == u.id,
       distinct: [s.user_id],
-      where: ilike(u.name, ^"%#{name}%"),
+      where: ilike(u.name, ^"#{name}%"),
       order_by: [s.user_id, desc: s.active, desc: s.updated_at],
       select: %{name: u.name, amount: s.amount, currency: s.currency}
   end

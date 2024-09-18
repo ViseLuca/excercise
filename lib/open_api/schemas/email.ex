@@ -10,13 +10,13 @@ defmodule BeExercise.OpenApi.Schemas.Email do
     title: "Email",
     description: "Send email to all the active users",
     type: :object,
-    properties: %{},
+    properties: %{
+      message: %Schema{type: :string, description: "Information on email sent or not"}
+    },
     required: [:message],
-    example: [
-      %{
-        "message" => "No email sent"
-      }
-    ]
+    example: %{
+      "message" => "10000 email sent"
+    }
   }
 
   def schema, do: @schema

@@ -17,7 +17,7 @@ defmodule BeExercise.Context.User do
 
   ## Examples
       iex> __MODULE__.get_all_active_users()
-      ["Luca", "Marco", "Sinama"]
+      [["Luca", 1],["Marco" 2], ["Sinama", 8]]
   """
   def get_all_active_users do
     Repo.all(
@@ -25,7 +25,7 @@ defmodule BeExercise.Context.User do
         join: s in Salary,
         on: s.user_id == u.id,
         where: s.active,
-        select: u.name
+        select: [u.name, u.id]
     )
   end
 end

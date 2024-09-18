@@ -30,7 +30,7 @@ defmodule BeExerciseWeb.UserController do
         Operation.parameter(:orderBy, :path, :string, "Order By", example: "asc")
       ],
       responses: %{
-        200 => Operation.response("User", "application/json", UserResponse)
+        200 => Operation.response("User list", "application/json", UserResponse)
       }
     }
   end
