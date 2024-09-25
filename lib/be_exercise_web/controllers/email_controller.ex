@@ -5,7 +5,7 @@ defmodule BeExerciseWeb.EmailController do
 
   import Plug.Conn
 
-  alias BeExercise.Infrastructure.SendEmail
+  alias BeExercise.Infrastructure.Oban.SendEmail
 
   alias BeExercise.OpenApi.Response.Email, as: EmailResponse
   alias OpenApiSpex.Operation
@@ -29,13 +29,19 @@ defmodule BeExerciseWeb.EmailController do
       operationId: "EmailController.show",
       parameters: [],
       responses: %{
-        200 => Operation.response("Email", "application/json", EmailResponse)
+        202 => Operation.response("Email", "application/json", EmailResponse)
       }
     }
   end
 
   @spec invite_users(Plug.Conn.t(), map()) :: Plug.Conn.t()
   def invite_users(conn, _params) do
-    render(conn, :show_response, response: SendEmail.to_all_active_users())
+    %{}
+    |> SendEmail.new()
+    |> Oban.insert()
+    |> case do
+      {:ok, _} -> send_resp(conn, 202, "Job scheduled")
+      error -> error
+    end
   end
 end

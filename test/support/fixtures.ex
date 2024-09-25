@@ -1,4 +1,8 @@
 defmodule BeExercise.Fixtures do
+  @moduledoc """
+      Support module to create fixtures
+  """
+
   alias BeExercise.Factory
   alias BeExercise.Repo
 

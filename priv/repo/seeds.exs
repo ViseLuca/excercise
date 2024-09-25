@@ -34,6 +34,8 @@ defmodule Helpers do
       |> NaiveDateTime.add(:rand.uniform(1000))
       |> NaiveDateTime.truncate(:second)
 
+    last_activation_at = if active, do: DateTime.utc_now(), else: nil
+
     random_float()
     |> trunc()
     |> then(
@@ -43,7 +45,8 @@ defmodule Helpers do
         user_id: user_id,
         active: active,
         inserted_at: now,
-        updated_at: now
+        updated_at: now,
+        last_activation_at: last_activation_at
       }
     )
   end
@@ -108,7 +111,8 @@ salaries
     user_id: &1.user_id,
     active: &1.active,
     inserted_at: &1.inserted_at,
-    updated_at: &1.updated_at
+    updated_at: &1.updated_at,
+    last_activation_at: &1.last_activation_at
   }),
   max_concurrency: max_concurrency
 )

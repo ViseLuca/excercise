@@ -30,3 +30,5 @@ config :phoenix, :plug_init_mode, :runtime
 config :be_exercise, test_rows: 10
 
 config :be_exercise, max_concurrency: 10
+
+config :be_exercise, Oban, testing: :manual

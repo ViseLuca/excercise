@@ -82,12 +82,11 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 ## Implementation details
 ### Assumptions
-- The user has just a single column in database, in this case filled by the name from the library
-- Currency is in a separated column and is registered with the code ISO 4217
-- The amount is stored as an integer and the last 2 digits are the decimals `eg. 3200000 -> 32.000,00`, to avoid errors on floating point numbers in maths operations. How is explained [here](https://0.30000000000000004.com/)
+- The currency is in a separated column and is registered with the code ISO 4217
+- The amount is stored as a bigint and the last N digits, depending on the currency, are the decimals `eg. 3200000 -> 32.000,00` for EUR, to avoid errors on floating point numbers in maths operations. How is explained [here](https://0.30000000000000004.com/)
 - The functionality to send invitations to users with an active salary is stateless, so if the API is called multiple time, multiple invitations will be sent.
 - The invitation sending is done synchronously but could be done in an asynchronous way using Oban to schedule a job and send the email in chunk.
-- The last salary updated (`updated_at` field) is the most recent one
+- The last salary active (`last_activation_at` field) is the most recent one. A salary can have never been activated so the field can be null. 
 - The queryParam to filter by name is called `name` and is searching with an insensitive case if the are names starting with the parameter value 
 - The queryParam to order the list is `orderBy` expecting `asc/desc` parameters, if a not valid parameter is sent the default is `asc` 
 

@@ -25,7 +25,7 @@ defmodule Unit.BeExercise.SalariesTest do
       Fixtures.insert_salary(100_000, "EUR", user.id, false)
       Fixtures.insert_salary(1_000_000, "EUR", user.id, false)
       Fixtures.insert_salary(10_000_000, "EUR", user.id, false)
-      Fixtures.insert_salary(100_00_000, "EUR", user.id, false)
+      Fixtures.insert_salary(100_000_000, "EUR", user.id, false)
     end
 
     test "every user can have at most one active salary" do

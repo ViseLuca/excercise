@@ -3,10 +3,11 @@ defmodule BeExercise.Repo.Migrations.CreateTableSalaries do
 
   def change do
     create table(:salaries) do
-      add(:amount, :integer, null: false)
+      add(:amount, :bigint, null: false)
       add(:currency, :text, null: false)
       add(:user_id, references(:users, on_delete: :nothing))
       add(:active, :boolean, default: true, null: false)
+      add(:last_activation_at, :utc_datetime_usec)
 
       timestamps()
     end

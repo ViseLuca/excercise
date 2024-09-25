@@ -17,3 +17,9 @@ config :logger, level: :info
 
 # Runtime production configuration, including reading
 # of environment variables, is done on config/runtime.exs.
+
+config :be_exercise, Oban,
+  plugins: [
+    {Oban.Plugins.Pruner, max_age: 60 * 60 * 24},
+    {Oban.Plugins.Lifeline, rescue_after: :timer.minutes(30)}
+  ]

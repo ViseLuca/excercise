@@ -1,54 +1,24 @@
 defmodule BeExerciseWeb.EmailControllerTest do
   use BeExerciseWeb.ConnCase, async: true
+  use Oban.Testing, repo: BeExercise.Repo
 
   import Mock
-  import OpenApiSpex.TestAssertions
 
-  alias BeExercise.Entity.Salary
-  alias BeExercise.Fixtures
-  alias BeExercise.Repo
-
-  @name "Luca"
-  @eur_currency "EUR"
+  alias BeExercise.Infrastructure.Oban.SendEmail
 
   describe "POST /invite-users" do
-    test "check email(s) are sent", %{conn: conn} do
+    test "email job is successfully scheduled", %{conn: conn} do
       conn = post(conn, ~p"/invite-users")
-      response = Jason.decode!(conn.resp_body)
-      api_spec = BeExercise.ApiSpec.spec()
 
-      assert json_response(conn, 200)
-      assert Regex.match?(~r/^\d+ email sent+/, response["data"]["message"])
-      assert_schema(response, "EmailResponse", api_spec)
+      assert 202 == conn.status
+      assert_enqueued(worker: SendEmail, queue: :users_invitations)
     end
 
-    test "deactivate all the salary and check, no email is sent", %{conn: conn} do
-      Repo.update_all(Salary, set: [active: false])
+    test "email job is not scheduled due to database error", %{conn: conn} do
+      with_mock Oban, insert: fn _ -> {:error, %Ecto.Changeset{}} end do
+        _conn = post(conn, ~p"/invite-users")
 
-      conn = post(conn, ~p"/invite-users")
-      response = Jason.decode!(conn.resp_body)
-      api_spec = BeExercise.ApiSpec.spec()
-
-      assert json_response(conn, 200)
-      assert "No email sent" == response["data"]["message"]
-      assert_schema(response, "EmailResponse", api_spec)
-    end
-
-    test "During the email sending, one or more sending is failing", %{conn: conn} do
-      with_mock BEChallengex,
-        send_email: fn
-          %{name: "Luca"} -> {:error, :econnrefused}
-          %{name: name} -> {:ok, name}
-        end do
-        %{id: id} = Fixtures.insert_user(@name)
-        Fixtures.insert_salary(6_500_000, @eur_currency, id, true)
-
-        api_spec = BeExercise.ApiSpec.spec()
-        conn = post(conn, ~p"/invite-users")
-        response = Jason.decode!(conn.resp_body)
-
-        assert Regex.match?(~r/^\d+ email sent+(, \d+ not sent+)*$/, response["data"]["message"])
-        assert_schema(response, "EmailResponse", api_spec)
+        refute_enqueued(worker: SendEmail, queue: :users_invitations)
       end
     end
   end

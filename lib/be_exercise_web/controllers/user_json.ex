@@ -13,7 +13,7 @@ defmodule BeExerciseWeb.UserJSON do
   defp format_for_response(salaries_list) do
     Logger.info("#{length(salaries_list)} users found")
 
-    Enum.map(salaries_list, fn %{name: name, amount: salary, currency: currency} ->
+    Enum.map(salaries_list, fn [name, salary, currency] ->
       %{name: name, salary: salary, currency: currency}
     end)
   end

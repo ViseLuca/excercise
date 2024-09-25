@@ -1,5 +1,8 @@
-defmodule BeExercise.FallbackController do
-  use Phoenix.Controller
+defmodule BeExerciseWeb.FallbackController do
+  @moduledoc """
+  See `Phoenix.Controller.action_fallback/1` for more details.
+  """
+  use BeExerciseWeb, :controller
 
   def call(conn, {:error, %Ecto.Changeset{} = changeset}) do
     conn

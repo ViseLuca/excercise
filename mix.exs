@@ -46,6 +46,7 @@ defmodule BeExercise.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:mock, "~> 0.3.8", only: :test},
+      {:oban, "~> 2.18.3"},
       {:open_api_spex, "~> 3.4"},
       {:phoenix, "~> 1.7.2"},
       {:phoenix_ecto, "~> 4.4"},

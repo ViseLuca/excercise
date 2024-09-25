@@ -12,6 +12,7 @@ defmodule BeExercise.Entity.Salary do
           currency: String.t(),
           user_id: integer(),
           active: boolean(),
+          last_activation_at: NaiveDateTime.t(),
           inserted_at: NaiveDateTime.t(),
           updated_at: NaiveDateTime.t()
         }
@@ -21,6 +22,7 @@ defmodule BeExercise.Entity.Salary do
     field(:currency, :string)
     field(:user_id, :integer)
     field(:active, :boolean)
+    field(:last_activation_at, :utc_datetime_usec)
     belongs_to :users, User
 
     timestamps()

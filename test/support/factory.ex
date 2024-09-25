@@ -20,7 +20,8 @@ defmodule BeExercise.Factory do
         user_id: user_id,
         active: active,
         inserted_at: NaiveDateTime.truncate(NaiveDateTime.utc_now(), :second),
-        updated_at: &1
+        updated_at: &1,
+        last_activation_at: DateTime.utc_now()
       }
     )
   end
