@@ -6,7 +6,7 @@ defmodule Unit.BeExercise.Infrastracture.Oban.SendEmailTest do
 
   alias BeExercise.Infrastructure.Oban.SendEmail
 
-  describe "Oban job running" do
+  describe "Oban job can be executed directly" do
     test "Job is executed directly without being in queue" do
       job_response = perform_job(SendEmail, %{})
 
