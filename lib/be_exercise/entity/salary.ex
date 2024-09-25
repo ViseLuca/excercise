@@ -8,7 +8,7 @@ defmodule BeExercise.Entity.Salary do
   alias BeExercise.Entity.User
 
   @type t :: %__MODULE__{
-          amount: integer(),
+          amount: pos_integer(),
           currency: String.t(),
           user_id: integer(),
           active: boolean(),

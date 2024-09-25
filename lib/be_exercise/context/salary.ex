@@ -21,7 +21,7 @@ defmodule BeExercise.Context.Salary do
       [["Luca", 4800000, "EUR"]]
   """
 
-  @type salary_response() :: list(String.t() | integer())
+  @type salary_response() :: list(String.t() | pos_integer())
 
   @spec get_active_or_the_most_recent_salaries(map()) :: [salary_response()]
   def get_active_or_the_most_recent_salaries(params) do

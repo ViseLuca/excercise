@@ -2,8 +2,9 @@ defmodule Unit.BeExercise.UsersTest do
   @moduledoc false
 
   use BeExercise.DataCase, async: true
-  alias BeExercise.Fixtures
+
   alias BeExercise.Context.User
+  alias BeExercise.Fixtures
 
   describe "Users extractions" do
     test "Retrieve just the users with active salaries" do
