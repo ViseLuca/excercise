@@ -54,10 +54,4 @@ defmodule BeExerciseWeb.Router do
       live_dashboard "/dashboard", metrics: BeExerciseWeb.Telemetry
     end
   end
-
-  scope "/", BeExerciseWeb do
-    pipe_through(:api)
-
-    match(:*, "/*path", PageController, :not_found)
-  end
 end

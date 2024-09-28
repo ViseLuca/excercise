@@ -8,11 +8,12 @@ In this exercise you're asked to create a Phoenix application and implement some
 
 > 💡 The Phoenix application is an API
 
-If you have any questions, don't hesitate to reach out directly to [code_exercise@remote.com](mailto:code_exercise@remote.com).
+Generally, we encourage candidates to make assumptions and solve this however they want, as long as those assumptions and approaches are explained and documented.
+However, if you have any more questions, please don't hesitate to reach out directly to [code_exercise@remote.com](mailto:code_exercise@remote.com).
 
 ## Expectations
 
-- It should be production-ready code - the code will show us how you ship things to production and be a mirror of your craft.
+- It should be production-ready code - the code will show us how you ship things on a daily basis, it should not only show your learnings from the language itself, but also the knowledge required around databases, testing, and best practices overall. 
   - Just to be extra clear: We don't actually expect you to deploy it somewhere or build a release. It's meant as a statement regarding the quality of the solution.
 - Take whatever time you need - we won’t look at start/end dates, you have a life besides this and we respect that! Moreover, if there is something you had to leave incomplete or there is a better solution you would implement but couldn’t due to personal time constraints, please try to walk us through your thought process or any missing parts, using the “Implementation Details” section below.
 
@@ -40,13 +41,14 @@ To save you some setup time we prepared this repo with a phoenix app that you ca
 - The status of each salary should also be random, allowing for users without any active salary and for users with just 1 active salary.
 - Must use 4 or more different currencies. Eg: USD, EUR, JPY and GBP.
 - Users’ name can be random or populated from the result of calling list_names/0 defined in the following library: [https://github.com/remotecom/be_challengex](https://github.com/remotecom/be_challengex)
+- Assume that engineers need to seed their databases regularly, so performance of the seed script matters.
 
 ### Tasks
 
 1. 📄 Implement an endpoint to provide a list of users and their salaries
     - Each user should return their `name` and active `salary`.
     - Some users might have been offboarded (offboarding functionality should be considered out of the scope for this exercise) so it’s possible that all salaries that belong to a user are inactive. In those cases, the endpoint is supposed to return the salary that was active most recently.
-    - This endpoint should support filtering by partial user name and order by user name.
+    - This endpoint should support filtering by partial user name and should order by user name by default.
     - Endpoint: `GET /users`
 
 2. 📬 Implement an endpoint that sends an email to all users with active salaries
@@ -57,7 +59,7 @@ To save you some setup time we prepared this repo with a phoenix app that you ca
 ### When you're done
 
 - You can use the "Implementation Details" section to explain some decisions/shortcomings of your implementation.
-- Open a Pull Request in this repo and send the link to [code_exercise@remote.com](mailto:code_exercise@remote.com).
+- Open a Pull Request in this repo and send the link to [code_exercise@remote.com](mailto:code_exercise@remote.com). We kindly ask that you do not share the challenge and your solution publicly.
 - You can also send some feedback about this exercise. Was it too big/short? Boring? Let us know!
 
 ---
@@ -82,24 +84,25 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 ## Implementation details
 ### Assumptions
-- The user has just a single column in database, in this case filled by the name for library
-- The name could be repeated
-- Currency is in a separated column and is registered with the code ISO 4217
-- Currency is reported in the JSON with the code ISO 4217 after the amount in the same string
-- Each User could have just a salary active in the Salary table, checked during the insertion function (out of scope)
-- We don't need to know for how much time a salary was active
-- The last salary updated (`updated_at` field) is the most recent one
-- The queryParam to filter by name is `name`
-- The queryParam to order the list is `orderBy` expecting `asc/desc` parameters, if a not valid parameter is sent the default is `asc`
-- If an email is sent, or not, I'm logging the name of the person but is recommended to not log PII (personally identifiable information)
+- The currency is in a separated column and is registered with the code ISO 4217
+- The amount is stored as a bigint and the last N digits, depending on the currency, are the decimals `eg. 3200000 -> 32.000,00` for EUR, to avoid errors on floating point numbers in maths operations. How is explained [here](https://0.30000000000000004.com/)
+- The functionality to send invitations to users with an active salary is stateless, so if the API is called multiple time, multiple invitations will be sent.
+- The invitation sending is done asynchronously using Oban to schedule a job for each user with an active salary, in this way we have a retry for every single error.
+- The SendEmail job has its own queue because is better to specify max_concurrency worker on it, different timeouts and prioritization of different jobs in different queues.
+- The last salary active (`last_activation_at` field) is the most recent one. A salary can have never been activated so the field can be null. 
+- The queryParam to filter by name is called `name` and is searching with an insensitive case if the are names starting with the parameter value. If parameter is not passed the default value is `""`(empty string) to retrieve all the users. 
+- The queryParam to order the list is `orderBy` expecting `asc/desc/ASC/DESC` parameters, is nullable and if the parameter is not passed I am setting the default as `asc` 
 
 ### Code maintenance and style
 I have added 2 dependencies `credo` and `dialyzer` to check code style and for maintenance.
-- Credo: is for static code analysis focused on code consistency and some refactoring opportunities
-- Dialyzer: is for static code analysis focused on the bytecode for BEAM VM. It shows warnings about wrong specs and
-  type mismatch
+- Credo: is for static code analysis focused on code consistency and some refactoring opportunities (alias ordering, remove IO.inspect, too deep nested anonymous fn)
+- Dialyzer: is for static code analysis focused on the bytecode for BEAM VM. It shows warnings about wrong specs and type mismatch
 
 They can be run together executing `mix check` in the terminal.
+
+### API Spec
+When the server is running you can check the [swagger](http://localhost:4000/swagger) to have a look at the API, it can be used also
+from FE side (eg. Typescript) to generate the modules with types without using them manually or to try directly the APIs from the webpage
 
 ### How to run
 How to run information can be found in [docs/how_to_run.md](docs/how_to_run.md)

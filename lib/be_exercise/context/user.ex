@@ -16,16 +16,16 @@ defmodule BeExercise.Context.User do
       No parameter is needed for this fn
 
   ## Examples
-      iex> __MODULE__.get_all_active_users()
-      ["Luca", "Marco", "Sinama"]
+      iex> __MODULE__.get_all_active_users_salaries()
+      [["Luca", 1],["Marco" 2], ["Sinama", 8]]
   """
-  def get_all_active_users do
+  def get_all_active_users_salaries do
     Repo.all(
       from u in User,
         join: s in Salary,
         on: s.user_id == u.id,
         where: s.active,
-        select: u.name
+        select: [u.name, u.id]
     )
   end
 end

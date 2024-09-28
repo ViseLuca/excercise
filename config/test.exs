@@ -27,4 +27,6 @@ config :logger, level: :warning
 config :phoenix, :plug_init_mode, :runtime
 
 # number of rows inserted for tests
-config :be_exercise, test_rows: 10
+config :be_exercise, test_rows: 20
+
+config :be_exercise, Oban, testing: :manual

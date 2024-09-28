@@ -9,7 +9,7 @@ defmodule BeExercise.Factory do
     %User{name: name}
   end
 
-  def create_salary(amount, currency, user_id, active, offset \\ 1) do
+  def create_salary(amount, currency, user_id, active, offset) do
     NaiveDateTime.utc_now()
     |> NaiveDateTime.add(offset)
     |> NaiveDateTime.truncate(:second)
@@ -20,7 +20,8 @@ defmodule BeExercise.Factory do
         user_id: user_id,
         active: active,
         inserted_at: NaiveDateTime.truncate(NaiveDateTime.utc_now(), :second),
-        updated_at: &1
+        updated_at: &1,
+        last_activation_at: DateTime.utc_now()
       }
     )
   end

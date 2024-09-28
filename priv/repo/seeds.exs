@@ -22,7 +22,7 @@ defmodule Helpers do
   end
 
   defp random_float() do
-    100_000 * :rand.uniform()
+    10_000_000 * :rand.uniform()
   end
 
   def create_salary(user_id, active) do
@@ -34,8 +34,10 @@ defmodule Helpers do
       |> NaiveDateTime.add(:rand.uniform(1000))
       |> NaiveDateTime.truncate(:second)
 
+    last_activation_at = if active, do: DateTime.utc_now(), else: nil
+
     random_float()
-    |> Float.round(2)
+    |> trunc()
     |> then(
       &%{
         amount: &1,
@@ -43,7 +45,8 @@ defmodule Helpers do
         user_id: user_id,
         active: active,
         inserted_at: now,
-        updated_at: now
+        updated_at: now,
+        last_activation_at: last_activation_at
       }
     )
   end
@@ -81,7 +84,7 @@ Logger.debug("Start seeding...")
         1 -> [false, true]
         2 -> [false, false]
       end
-      |> Enum.map(&(i |> Helpers.create_salary(&1)))
+      |> Enum.map(&Helpers.create_salary(i, &1))
       |> Kernel.++(salaries)
 
     {users, salaries}
@@ -92,7 +95,26 @@ users
 |> Enum.map(&Repo.insert_all(User, &1))
 
 salaries
+|> Enum.map(
+  &%{
+    amount: &1.amount,
+    currency: &1.currency,
+    user_id: &1.user_id,
+    active: &1.active,
+    inserted_at: &1.inserted_at,
+    updated_at: &1.updated_at,
+    last_activation_at: &1.last_activation_at
+  }
+)
 |> Enum.chunk_every(5000)
 |> Enum.map(&Repo.insert_all(Salary, &1))
+|> Enum.reduce([], fn
+  {_, nil}, acc -> acc
+  {_, error}, acc -> acc ++ [error]
+end)
+|> case do
+  [] -> "All salaries inserted"
+  errors -> "Error while inserting salaries #{errors}"
+end
 
 Logger.debug("End seeding...")

@@ -3,14 +3,11 @@ defmodule BeExercise.OpenApi.Response.Email do
         Definition of the response for Email api
   """
   require OpenApiSpex
-  alias BeExercise.OpenApi.Schemas.Email, as: EmailSchema
 
   OpenApiSpex.schema(%{
     title: "EmailResponse",
     description: "Response schema email",
-    type: :object,
-    properties: %{
-      data: EmailSchema
-    }
+    type: :string,
+    example: "Job scheduled"
   })
 end
