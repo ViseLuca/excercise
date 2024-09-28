@@ -30,7 +30,7 @@ config :phoenix, :json_library, Jason
 
 config :be_exercise, Oban,
   engine: Oban.Engines.Basic,
-  queues: [users_invitations: 1],
+  queues: [users_invitations: 10],
   repo: BeExercise.Repo
 
 # Import environment specific config. This must remain at the bottom

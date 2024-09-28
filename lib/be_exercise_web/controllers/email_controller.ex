@@ -38,18 +38,15 @@ defmodule BeExerciseWeb.EmailController do
   @spec invite_users(Plug.Conn.t(), map()) :: Plug.Conn.t()
   def invite_users(conn, _params) do
     User.get_all_active_users_salaries()
-    |> Enum.map(fn [name, id] ->
-      %{name: name, id: id}
-      |> SendEmail.new(unique: true)
-      |> Oban.insert()
-    end)
-    |> Enum.any?(fn
-      {:ok, _} -> true
-      _ -> false
-    end)
-    |> case do
-      false -> send_resp(conn, 500, "Job not scheduled")
-      true -> send_resp(conn, 202, "Job scheduled")
-    end
+    |> Enum.chunk_every(5000)
+    |> Enum.map(
+      &(Enum.map(&1, fn [name, id] ->
+          %{name: name, id: id}
+          |> SendEmail.new(unique: true)
+        end)
+        |> Oban.insert_all())
+    )
+
+    send_resp(conn, 202, "Job scheduled")
   end
 end

@@ -32,14 +32,13 @@ defmodule BeExercise.Context.Salary do
 
   @spec get_active_or_the_most_recent_salaries(salary_request()) :: [salary_response()]
   def get_active_or_the_most_recent_salaries(params) do
-
     order_by =
       order_by_clause(params[:orderBy], :name)
 
     get_active_or_the_most_recent_salaries_subquery(params[:name], order_by)
   end
 
-  defp get_active_or_the_most_recent_salaries_subquery(name \\ "", order_by) do
+  defp get_active_or_the_most_recent_salaries_subquery(name, order_by) do
     subquery =
       from(s in Salary,
         join: u in User,
