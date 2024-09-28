@@ -14,8 +14,8 @@ defmodule BeExerciseWeb.EmailControllerTest do
       assert_enqueued(worker: SendEmail, queue: :users_invitations)
     end
 
-    test "email job is not scheduled due to database error", %{conn: conn} do
-      with_mock Oban, insert: fn _ -> {:error, %Ecto.Changeset{}} end do
+    test "email jobs are not scheduled due to database error", %{conn: conn} do
+      with_mock Oban, insert_all: fn _ -> {:error, %Ecto.Changeset{}} end do
         _conn = post(conn, ~p"/invite-users")
 
         refute_enqueued(worker: SendEmail, queue: :users_invitations)

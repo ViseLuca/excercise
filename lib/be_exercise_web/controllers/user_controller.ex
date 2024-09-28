@@ -7,8 +7,8 @@ defmodule BeExerciseWeb.UserController do
   alias BeExercise.Context.Salary
   alias BeExercise.OpenApi.Response.User, as: UserResponse
   alias OpenApiSpex.Operation
-  alias OpenApiSpex.Schema
   alias OpenApiSpex.Plug.CastAndValidate
+  alias OpenApiSpex.Schema
 
   require Logger
 
