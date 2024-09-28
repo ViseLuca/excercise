@@ -38,7 +38,8 @@ defmodule BeExerciseWeb.UserController do
         )
       ],
       responses: %{
-        200 => Operation.response("User list", "application/json", UserResponse)
+        200 => Operation.response("User list", "application/json", UserResponse),
+        422 => Operation.response("Payload error", "application/json", %Schema{type: :string})
       }
     }
   end

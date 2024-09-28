@@ -21,7 +21,7 @@ defmodule BeExercise.Context.Salary do
 
   ## Examples
       iex> __MODULE__.get_active_or_the_most_recent_salaries(%{"name" => "Luca", "orderBy" => "asc"})
-      [["Luca", 4800000, "EUR"]]
+      [%{name: "Luca", salary: 4800000, currency: "EUR"}]
   """
 
   @type salary_response() :: list(String.t() | pos_integer())

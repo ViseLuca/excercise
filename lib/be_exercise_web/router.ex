@@ -18,6 +18,7 @@ defmodule BeExerciseWeb.Router do
   scope "/", BeExerciseWeb do
     pipe_through :api
 
+    get "/", PageController, :ping
     get "/users", UserController, :get_users
     post "/invite-users", EmailController, :invite_users
   end

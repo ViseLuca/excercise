@@ -76,6 +76,17 @@ defmodule BeExerciseWeb.UserControllerTest do
       assert_schema(response, "UserResponse", api_spec)
     end
 
+    test "check that the response is ordered by asc when a parameter is not valid",
+         %{conn: conn} do
+      conn = get(conn, ~p"/users?orderBy=descendant")
+      response = Jason.decode!(conn.resp_body)
+      api_spec = BeExercise.ApiSpec.spec()
+
+
+      assert json_response(conn, 422)
+      assert_schema(response, "UserResponse", api_spec)
+    end
+
     test "insert one more user with an active salary and check that the length is more than #{@length} and is extracted the active salary",
          %{
            conn: conn
