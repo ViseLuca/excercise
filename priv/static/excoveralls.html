@@ -425,11 +425,11 @@ function find(y) {
         
           
             <li>
-              <span class='cov medium'>66.7</span>
-              <a href='#lib/be_exercise/infrastructure/oban/send_email.ex'>
+              <span class='cov high'>75</span>
+              <a href='#lib/be_exercise/infrastructure/workers/send_email.ex'>
                 
                 
-                  <span class='dirname'>lib/be_exercise/infrastructure/oban/</span>
+                  <span class='dirname'>lib/be_exercise/infrastructure/workers/</span>
                 
                 <span class='basename'>send_email.ex</span>
               </a>
@@ -490,7 +490,7 @@ function find(y) {
         
           
             <li>
-              <span class='cov medium'>66.7</span>
+              <span class='cov terrible'>0</span>
               <a href='#lib/be_exercise_web/controllers/fallback_controller.ex'>
                 
                 
@@ -503,20 +503,7 @@ function find(y) {
         
           
             <li>
-              <span class='cov high'>100</span>
-              <a href='#lib/be_exercise_web/controllers/page_controller.ex'>
-                
-                
-                  <span class='dirname'>lib/be_exercise_web/controllers/</span>
-                
-                <span class='basename'>page_controller.ex</span>
-              </a>
-            </li>
-          
-        
-          
-            <li>
-              <span class='cov high'>100</span>
+              <span class='cov terrible'>0</span>
               <a href='#lib/be_exercise_web/controllers/page_json.ex'>
                 
                 
@@ -673,10 +660,10 @@ function find(y) {
       </div>
 
       <div id='stats' class='high'>
-        <div class='percentage'>88</div>
-        <div class='sloc'>75</div>
-        <div class='hits'>581</div>
-        <div class='misses'>9</div>
+        <div class='percentage'>86.3</div>
+        <div class='sloc'>73</div>
+        <div class='hits'>610</div>
+        <div class='misses'>10</div>
       </div>
       <div id='files'>
         
@@ -685,8 +672,8 @@ function find(y) {
               <h2 id='lib/be_exercise/context/salary.ex'>lib/be_exercise/context/salary.ex</h2>
               <div id='stats' class='high'>
                 <div class='percentage'>100</div>
-                <div class='sloc'>7</div>
-                <div class='hits'>54</div>
+                <div class='sloc'>12</div>
+                <div class='hits'>80</div>
                 <div class='misses'>0</div>
               </div>
               <table id='source'>
@@ -774,7 +761,7 @@ function find(y) {
                         <tr>
                           <td class='line'>9</td>
                           <td class='hits'></td>
-                          <td class='source'>  alias BeExercise.Repo</td>
+                          <td class='source'>  import Ecto.Query</td>
                         </tr>
                     
                   
@@ -782,7 +769,7 @@ function find(y) {
                         <tr>
                           <td class='line'>10</td>
                           <td class='hits'></td>
-                          <td class='source'>  alias Ecto.Adapters.SQL</td>
+                          <td class='source'></td>
                         </tr>
                     
                   
@@ -790,7 +777,7 @@ function find(y) {
                         <tr>
                           <td class='line'>11</td>
                           <td class='hits'></td>
-                          <td class='source'></td>
+                          <td class='source'>  alias BeExercise.Entity.Salary</td>
                         </tr>
                     
                   
@@ -798,7 +785,7 @@ function find(y) {
                         <tr>
                           <td class='line'>12</td>
                           <td class='hits'></td>
-                          <td class='source'>  @doc &quot;&quot;&quot;</td>
+                          <td class='source'>  alias BeExercise.Entity.User</td>
                         </tr>
                     
                   
@@ -806,7 +793,7 @@ function find(y) {
                         <tr>
                           <td class='line'>13</td>
                           <td class='hits'></td>
-                          <td class='source'>  Get active or the most recent salaries based on the given parameters.</td>
+                          <td class='source'>  alias BeExercise.Repo</td>
                         </tr>
                     
                   
@@ -822,7 +809,7 @@ function find(y) {
                         <tr>
                           <td class='line'>15</td>
                           <td class='hits'></td>
-                          <td class='source'>  ## Parameters</td>
+                          <td class='source'>  @doc &quot;&quot;&quot;</td>
                         </tr>
                     
                   
@@ -830,7 +817,7 @@ function find(y) {
                         <tr>
                           <td class='line'>16</td>
                           <td class='hits'></td>
-                          <td class='source'>  - `params` (map) - The query parameters including `name` and `orderBy`.</td>
+                          <td class='source'>  Get active or the most recent salaries based on the given parameters.</td>
                         </tr>
                     
                   
@@ -846,7 +833,7 @@ function find(y) {
                         <tr>
                           <td class='line'>18</td>
                           <td class='hits'></td>
-                          <td class='source'>  ## Examples</td>
+                          <td class='source'>  ## Parameters</td>
                         </tr>
                     
                   
@@ -854,7 +841,7 @@ function find(y) {
                         <tr>
                           <td class='line'>19</td>
                           <td class='hits'></td>
-                          <td class='source'>      iex&gt; __MODULE__.get_active_or_the_most_recent_salaries(%{&quot;name&quot; =&gt; &quot;Luca&quot;, &quot;orderBy&quot; =&gt; &quot;asc&quot;})</td>
+                          <td class='source'>  - `params` (map) - The query parameters including `name` and `orderBy`.</td>
                         </tr>
                     
                   
@@ -862,7 +849,7 @@ function find(y) {
                         <tr>
                           <td class='line'>20</td>
                           <td class='hits'></td>
-                          <td class='source'>      [[&quot;Luca&quot;, 4800000, &quot;EUR&quot;]]</td>
+                          <td class='source'></td>
                         </tr>
                     
                   
@@ -870,7 +857,7 @@ function find(y) {
                         <tr>
                           <td class='line'>21</td>
                           <td class='hits'></td>
-                          <td class='source'>  &quot;&quot;&quot;</td>
+                          <td class='source'>  ## Examples</td>
                         </tr>
                     
                   
@@ -878,7 +865,7 @@ function find(y) {
                         <tr>
                           <td class='line'>22</td>
                           <td class='hits'></td>
-                          <td class='source'></td>
+                          <td class='source'>      iex&gt; __MODULE__.get_active_or_the_most_recent_salaries(%{&quot;name&quot; =&gt; &quot;Luca&quot;, &quot;orderBy&quot; =&gt; &quot;asc&quot;})</td>
                         </tr>
                     
                   
@@ -886,7 +873,7 @@ function find(y) {
                         <tr>
                           <td class='line'>23</td>
                           <td class='hits'></td>
-                          <td class='source'>  @type salary_response() :: list(String.t() | integer())</td>
+                          <td class='source'>      [[&quot;Luca&quot;, 4800000, &quot;EUR&quot;]]</td>
                         </tr>
                     
                   
@@ -894,7 +881,7 @@ function find(y) {
                         <tr>
                           <td class='line'>24</td>
                           <td class='hits'></td>
-                          <td class='source'></td>
+                          <td class='source'>  &quot;&quot;&quot;</td>
                         </tr>
                     
                   
@@ -902,7 +889,7 @@ function find(y) {
                         <tr>
                           <td class='line'>25</td>
                           <td class='hits'></td>
-                          <td class='source'>  @spec get_active_or_the_most_recent_salaries(map()) :: [salary_response()]</td>
+                          <td class='source'></td>
                         </tr>
                     
                   
@@ -910,23 +897,23 @@ function find(y) {
                         <tr>
                           <td class='line'>26</td>
                           <td class='hits'></td>
-                          <td class='source'>  def get_active_or_the_most_recent_salaries(params) do</td>
+                          <td class='source'>  @type salary_response() :: list(String.t() | pos_integer())</td>
                         </tr>
                     
                   
                     
-                        <tr class='hit'>
+                        <tr>
                           <td class='line'>27</td>
-                          <td class='hits'>9</td>
-                          <td class='source'>    order_by =</td>
+                          <td class='hits'></td>
+                          <td class='source'>  @type salary_request() :: %{</td>
                         </tr>
-                      
+                    
                   
                     
                         <tr>
                           <td class='line'>28</td>
                           <td class='hits'></td>
-                          <td class='source'>      params</td>
+                          <td class='source'>          name: String.t(),</td>
                         </tr>
                     
                   
@@ -934,7 +921,7 @@ function find(y) {
                         <tr>
                           <td class='line'>29</td>
                           <td class='hits'></td>
-                          <td class='source'>      |&gt; Map.get(&quot;orderBy&quot;, &quot;ASC&quot;)</td>
+                          <td class='source'>          orderBy: String.t()</td>
                         </tr>
                     
                   
@@ -942,7 +929,7 @@ function find(y) {
                         <tr>
                           <td class='line'>30</td>
                           <td class='hits'></td>
-                          <td class='source'>      |&gt; String.upcase()</td>
+                          <td class='source'>        }</td>
                         </tr>
                     
                   
@@ -950,7 +937,7 @@ function find(y) {
                         <tr>
                           <td class='line'>31</td>
                           <td class='hits'></td>
-                          <td class='source'>      |&gt; order_by_clause()</td>
+                          <td class='source'></td>
                         </tr>
                     
                   
@@ -958,7 +945,7 @@ function find(y) {
                         <tr>
                           <td class='line'>32</td>
                           <td class='hits'></td>
-                          <td class='source'></td>
+                          <td class='source'>  @spec get_active_or_the_most_recent_salaries(salary_request()) :: [salary_response()]</td>
                         </tr>
                     
                   
@@ -966,39 +953,39 @@ function find(y) {
                         <tr>
                           <td class='line'>33</td>
                           <td class='hits'></td>
-                          <td class='source'>    params</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>34</td>
-                          <td class='hits'></td>
-                          <td class='source'>    |&gt; Map.get(&quot;name&quot;, &quot;&quot;)</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>35</td>
-                          <td class='hits'></td>
-                          <td class='source'>    |&gt; get_active_or_the_most_recent_salaries_subquery(order_by)</td>
+                          <td class='source'>  def get_active_or_the_most_recent_salaries(params) do</td>
                         </tr>
                     
                   
                     
                         <tr class='hit'>
-                          <td class='line'>36</td>
-                          <td class='hits'>9</td>
-                          <td class='source'>    |&gt; then(&amp; &amp;1.rows)</td>
+                          <td class='line'>34</td>
+                          <td class='hits'>8</td>
+                          <td class='source'>    order_by =</td>
                         </tr>
                       
                   
                     
                         <tr>
+                          <td class='line'>35</td>
+                          <td class='hits'></td>
+                          <td class='source'>      params</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>36</td>
+                          <td class='hits'></td>
+                          <td class='source'>      |&gt; Map.get(&quot;orderBy&quot;, &quot;ASC&quot;)</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
                           <td class='line'>37</td>
                           <td class='hits'></td>
-                          <td class='source'>  end</td>
+                          <td class='source'>      |&gt; String.upcase()</td>
                         </tr>
                     
                   
@@ -1006,7 +993,7 @@ function find(y) {
                         <tr>
                           <td class='line'>38</td>
                           <td class='hits'></td>
-                          <td class='source'></td>
+                          <td class='source'>      |&gt; order_by_clause(:name)</td>
                         </tr>
                     
                   
@@ -1014,39 +1001,39 @@ function find(y) {
                         <tr>
                           <td class='line'>39</td>
                           <td class='hits'></td>
-                          <td class='source'>  defp get_active_or_the_most_recent_salaries_subquery(name, order_by) do</td>
+                          <td class='source'></td>
                         </tr>
                     
                   
                     
-                        <tr class='hit'>
+                        <tr>
                           <td class='line'>40</td>
-                          <td class='hits'>9</td>
-                          <td class='source'>    SQL.query!(Repo, &quot;WITH ActiveOrMostActiveSalaries AS (</td>
+                          <td class='hits'></td>
+                          <td class='source'>    params</td>
                         </tr>
-                      
+                    
                   
                     
                         <tr>
                           <td class='line'>41</td>
                           <td class='hits'></td>
-                          <td class='source'>  SELECT</td>
+                          <td class='source'>    |&gt; Map.get(&quot;name&quot;, &quot;&quot;)</td>
                         </tr>
                     
                   
                     
-                        <tr>
+                        <tr class='hit'>
                           <td class='line'>42</td>
-                          <td class='hits'></td>
-                          <td class='source'>    s.user_id,</td>
+                          <td class='hits'>8</td>
+                          <td class='source'>    |&gt; get_active_or_the_most_recent_salaries_subquery(order_by)</td>
                         </tr>
-                    
+                      
                   
                     
                         <tr>
                           <td class='line'>43</td>
                           <td class='hits'></td>
-                          <td class='source'>    u.name,</td>
+                          <td class='source'>  end</td>
                         </tr>
                     
                   
@@ -1054,7 +1041,7 @@ function find(y) {
                         <tr>
                           <td class='line'>44</td>
                           <td class='hits'></td>
-                          <td class='source'>    s.amount,</td>
+                          <td class='source'></td>
                         </tr>
                     
                   
@@ -1062,23 +1049,23 @@ function find(y) {
                         <tr>
                           <td class='line'>45</td>
                           <td class='hits'></td>
-                          <td class='source'>    s.currency,</td>
+                          <td class='source'>  defp get_active_or_the_most_recent_salaries_subquery(name, order_by) do</td>
                         </tr>
                     
                   
                     
-                        <tr>
+                        <tr class='hit'>
                           <td class='line'>46</td>
-                          <td class='hits'></td>
-                          <td class='source'>    s.active,</td>
+                          <td class='hits'>8</td>
+                          <td class='source'>    subquery =</td>
                         </tr>
-                    
+                      
                   
                     
                         <tr>
                           <td class='line'>47</td>
                           <td class='hits'></td>
-                          <td class='source'>    s.last_activation_at,</td>
+                          <td class='source'>      from(s in Salary,</td>
                         </tr>
                     
                   
@@ -1086,7 +1073,7 @@ function find(y) {
                         <tr>
                           <td class='line'>48</td>
                           <td class='hits'></td>
-                          <td class='source'>    ROW_NUMBER() OVER (</td>
+                          <td class='source'>        join: u in User,</td>
                         </tr>
                     
                   
@@ -1094,23 +1081,23 @@ function find(y) {
                         <tr>
                           <td class='line'>49</td>
                           <td class='hits'></td>
-                          <td class='source'>      PARTITION BY s.user_id</td>
+                          <td class='source'>        on: s.user_id == u.id,</td>
                         </tr>
                     
                   
                     
-                        <tr>
+                        <tr class='hit'>
                           <td class='line'>50</td>
-                          <td class='hits'></td>
-                          <td class='source'>      ORDER BY s.active DESC, s.last_activation_at DESC</td>
+                          <td class='hits'>8</td>
+                          <td class='source'>        where: ilike(u.name, ^&quot;#{name}%&quot;),</td>
                         </tr>
-                    
+                      
                   
                     
                         <tr>
                           <td class='line'>51</td>
                           <td class='hits'></td>
-                          <td class='source'>    ) AS rn</td>
+                          <td class='source'>        select: %{</td>
                         </tr>
                     
                   
@@ -1118,7 +1105,7 @@ function find(y) {
                         <tr>
                           <td class='line'>52</td>
                           <td class='hits'></td>
-                          <td class='source'>  FROM salaries s</td>
+                          <td class='source'>          user_id: s.user_id,</td>
                         </tr>
                     
                   
@@ -1126,23 +1113,23 @@ function find(y) {
                         <tr>
                           <td class='line'>53</td>
                           <td class='hits'></td>
-                          <td class='source'>  JOIN users u ON s.user_id = u.id</td>
+                          <td class='source'>          name: u.name,</td>
                         </tr>
                     
                   
                     
-                        <tr class='hit'>
+                        <tr>
                           <td class='line'>54</td>
-                          <td class='hits'>9</td>
-                          <td class='source'>  WHERE name ilike &#39;#{name}%&#39;</td>
+                          <td class='hits'></td>
+                          <td class='source'>          amount: s.amount,</td>
                         </tr>
-                      
+                    
                   
                     
                         <tr>
                           <td class='line'>55</td>
                           <td class='hits'></td>
-                          <td class='source'>)</td>
+                          <td class='source'>          currency: s.currency,</td>
                         </tr>
                     
                   
@@ -1150,7 +1137,7 @@ function find(y) {
                         <tr>
                           <td class='line'>56</td>
                           <td class='hits'></td>
-                          <td class='source'>SELECT</td>
+                          <td class='source'>          active: s.active,</td>
                         </tr>
                     
                   
@@ -1158,7 +1145,7 @@ function find(y) {
                         <tr>
                           <td class='line'>57</td>
                           <td class='hits'></td>
-                          <td class='source'>  name,</td>
+                          <td class='source'>          last_activation_at: s.last_activation_at,</td>
                         </tr>
                     
                   
@@ -1166,7 +1153,7 @@ function find(y) {
                         <tr>
                           <td class='line'>58</td>
                           <td class='hits'></td>
-                          <td class='source'>  amount,</td>
+                          <td class='source'>          rn:</td>
                         </tr>
                     
                   
@@ -1174,7 +1161,7 @@ function find(y) {
                         <tr>
                           <td class='line'>59</td>
                           <td class='hits'></td>
-                          <td class='source'>  currency</td>
+                          <td class='source'>            fragment(</td>
                         </tr>
                     
                   
@@ -1182,7 +1169,7 @@ function find(y) {
                         <tr>
                           <td class='line'>60</td>
                           <td class='hits'></td>
-                          <td class='source'>FROM ActiveOrMostActiveSalaries</td>
+                          <td class='source'>              &quot;ROW_NUMBER() OVER (PARTITION BY ? ORDER BY ? DESC, ? DESC)&quot;,</td>
                         </tr>
                     
                   
@@ -1190,23 +1177,23 @@ function find(y) {
                         <tr>
                           <td class='line'>61</td>
                           <td class='hits'></td>
-                          <td class='source'>WHERE rn = 1</td>
+                          <td class='source'>              s.user_id,</td>
                         </tr>
                     
                   
                     
-                        <tr class='hit'>
+                        <tr>
                           <td class='line'>62</td>
-                          <td class='hits'>9</td>
-                          <td class='source'>ORDER BY name #{order_by};&quot;)</td>
+                          <td class='hits'></td>
+                          <td class='source'>              s.active,</td>
                         </tr>
-                      
+                    
                   
                     
                         <tr>
                           <td class='line'>63</td>
                           <td class='hits'></td>
-                          <td class='source'>  end</td>
+                          <td class='source'>              s.last_activation_at</td>
                         </tr>
                     
                   
@@ -1214,23 +1201,23 @@ function find(y) {
                         <tr>
                           <td class='line'>64</td>
                           <td class='hits'></td>
-                          <td class='source'></td>
+                          <td class='source'>            )</td>
                         </tr>
                     
                   
                     
-                        <tr class='hit'>
+                        <tr>
                           <td class='line'>65</td>
-                          <td class='hits'>8</td>
-                          <td class='source'>  defp order_by_clause(clause) when clause in [&quot;ASC&quot;, &quot;DESC&quot;], do: clause</td>
+                          <td class='hits'></td>
+                          <td class='source'>        }</td>
                         </tr>
-                      
+                    
                   
                     
                         <tr>
                           <td class='line'>66</td>
                           <td class='hits'></td>
-                          <td class='source'></td>
+                          <td class='source'>      )</td>
                         </tr>
                     
                   
@@ -1238,29 +1225,109 @@ function find(y) {
                         <tr>
                           <td class='line'>67</td>
                           <td class='hits'></td>
-                          <td class='source'>  defp order_by_clause(clause) do</td>
+                          <td class='source'></td>
                         </tr>
                     
                   
                     
                         <tr class='hit'>
                           <td class='line'>68</td>
-                          <td class='hits'>1</td>
-                          <td class='source'>    Logger.warning(&quot;#{clause} is not a valid order_by parameter&quot;)</td>
+                          <td class='hits'>8</td>
+                          <td class='source'>    query =</td>
+                        </tr>
+                      
+                  
+                    
+                        <tr class='hit'>
+                          <td class='line'>69</td>
+                          <td class='hits'>8</td>
+                          <td class='source'>      from(salaries in subquery(subquery),</td>
                         </tr>
                       
                   
                     
                         <tr>
-                          <td class='line'>69</td>
+                          <td class='line'>70</td>
                           <td class='hits'></td>
-                          <td class='source'>    &quot;ASC&quot;</td>
+                          <td class='source'>        where: salaries.rn == 1,</td>
                         </tr>
                     
                   
                     
                         <tr>
-                          <td class='line'>70</td>
+                          <td class='line'>71</td>
+                          <td class='hits'></td>
+                          <td class='source'>        order_by: ^order_by,</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>72</td>
+                          <td class='hits'></td>
+                          <td class='source'>        select: %{</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>73</td>
+                          <td class='hits'></td>
+                          <td class='source'>          name: salaries.name,</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>74</td>
+                          <td class='hits'></td>
+                          <td class='source'>          amount: salaries.amount,</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>75</td>
+                          <td class='hits'></td>
+                          <td class='source'>          currency: salaries.currency</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>76</td>
+                          <td class='hits'></td>
+                          <td class='source'>        }</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>77</td>
+                          <td class='hits'></td>
+                          <td class='source'>      )</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>78</td>
+                          <td class='hits'></td>
+                          <td class='source'></td>
+                        </tr>
+                    
+                  
+                    
+                        <tr class='hit'>
+                          <td class='line'>79</td>
+                          <td class='hits'>8</td>
+                          <td class='source'>    Repo.all(query)</td>
+                        </tr>
+                      
+                  
+                    
+                        <tr>
+                          <td class='line'>80</td>
                           <td class='hits'></td>
                           <td class='source'>  end</td>
                         </tr>
@@ -1268,7 +1335,127 @@ function find(y) {
                   
                     
                         <tr>
-                          <td class='line'>71</td>
+                          <td class='line'>81</td>
+                          <td class='hits'></td>
+                          <td class='source'></td>
+                        </tr>
+                    
+                  
+                    
+                        <tr class='hit'>
+                          <td class='line'>82</td>
+                          <td class='hits'>8</td>
+                          <td class='source'>  defp order_by_clause(clause) when is_tuple(clause), do: clause |&gt; List.wrap() |&gt; Keyword.new()</td>
+                        </tr>
+                      
+                  
+                    
+                        <tr>
+                          <td class='line'>83</td>
+                          <td class='hits'></td>
+                          <td class='source'></td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>84</td>
+                          <td class='hits'></td>
+                          <td class='source'>  defp order_by_clause(order_by, column) when order_by in [&quot;ASC&quot;, &quot;asc&quot;, &quot;DESC&quot;, &quot;desc&quot;],</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>85</td>
+                          <td class='hits'></td>
+                          <td class='source'>    do:</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>86</td>
+                          <td class='hits'></td>
+                          <td class='source'>      order_by</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>87</td>
+                          <td class='hits'></td>
+                          <td class='source'>      |&gt; String.downcase()</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>88</td>
+                          <td class='hits'></td>
+                          <td class='source'>      |&gt; String.to_existing_atom()</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr class='hit'>
+                          <td class='line'>89</td>
+                          <td class='hits'>7</td>
+                          <td class='source'>      |&gt; then(&amp;{&amp;1, column})</td>
+                        </tr>
+                      
+                  
+                    
+                        <tr class='hit'>
+                          <td class='line'>90</td>
+                          <td class='hits'>7</td>
+                          <td class='source'>      |&gt; order_by_clause()</td>
+                        </tr>
+                      
+                  
+                    
+                        <tr>
+                          <td class='line'>91</td>
+                          <td class='hits'></td>
+                          <td class='source'></td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>92</td>
+                          <td class='hits'></td>
+                          <td class='source'>  defp order_by_clause(order_by, column) do</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr class='hit'>
+                          <td class='line'>93</td>
+                          <td class='hits'>1</td>
+                          <td class='source'>    Logger.warning(&quot;#{order_by} is not a valid order_by parameter&quot;)</td>
+                        </tr>
+                      
+                  
+                    
+                        <tr class='hit'>
+                          <td class='line'>94</td>
+                          <td class='hits'>1</td>
+                          <td class='source'>    order_by_clause({:asc, column})</td>
+                        </tr>
+                      
+                  
+                    
+                        <tr>
+                          <td class='line'>95</td>
+                          <td class='hits'></td>
+                          <td class='source'>  end</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>96</td>
                           <td class='hits'></td>
                           <td class='source'>end</td>
                         </tr>
@@ -1285,7 +1472,7 @@ function find(y) {
               <div id='stats' class='high'>
                 <div class='percentage'>100</div>
                 <div class='sloc'>1</div>
-                <div class='hits'>2</div>
+                <div class='hits'>3</div>
                 <div class='misses'>0</div>
               </div>
               <table id='source'>
@@ -1476,7 +1663,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>22</td>
-                          <td class='hits'>2</td>
+                          <td class='hits'>3</td>
                           <td class='source'>    Repo.all(</td>
                         </tr>
                       
@@ -1556,7 +1743,7 @@ function find(y) {
               <div id='stats' class='high'>
                 <div class='percentage'>100</div>
                 <div class='sloc'>1</div>
-                <div class='hits'>15</div>
+                <div class='hits'>23</div>
                 <div class='misses'>0</div>
               </div>
               <table id='source'>
@@ -1652,7 +1839,7 @@ function find(y) {
                         <tr>
                           <td class='line'>10</td>
                           <td class='hits'></td>
-                          <td class='source'>          amount: integer(),</td>
+                          <td class='source'>          amount: pos_integer(),</td>
                         </tr>
                     
                   
@@ -1723,7 +1910,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>19</td>
-                          <td class='hits'>15</td>
+                          <td class='hits'>23</td>
                           <td class='source'>  schema &quot;salaries&quot; do</td>
                         </tr>
                       
@@ -1819,7 +2006,7 @@ function find(y) {
               <div id='stats' class='high'>
                 <div class='percentage'>100</div>
                 <div class='sloc'>1</div>
-                <div class='hits'>9</div>
+                <div class='hits'>13</div>
                 <div class='misses'>0</div>
               </div>
               <table id='source'>
@@ -1954,7 +2141,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>15</td>
-                          <td class='hits'>9</td>
+                          <td class='hits'>13</td>
                           <td class='source'>  schema &quot;users&quot; do</td>
                         </tr>
                       
@@ -2133,12 +2320,12 @@ function find(y) {
         
           
             <div class='file'>
-              <h2 id='lib/be_exercise/infrastructure/oban/send_email.ex'>lib/be_exercise/infrastructure/oban/send_email.ex</h2>
-              <div id='stats' class='medium'>
-                <div class='percentage'>66.7</div>
-                <div class='sloc'>9</div>
-                <div class='hits'>18</div>
-                <div class='misses'>3</div>
+              <h2 id='lib/be_exercise/infrastructure/workers/send_email.ex'>lib/be_exercise/infrastructure/workers/send_email.ex</h2>
+              <div id='stats' class='high'>
+                <div class='percentage'>75</div>
+                <div class='sloc'>4</div>
+                <div class='hits'>3</div>
+                <div class='misses'>1</div>
               </div>
               <table id='source'>
                 <thead>
@@ -2153,7 +2340,7 @@ function find(y) {
                         <tr>
                           <td class='line'>0</td>
                           <td class='hits'></td>
-                          <td class='source'>defmodule BeExercise.Infrastructure.Oban.SendEmail do</td>
+                          <td class='source'>defmodule BeExercise.Infrastructure.Workers.SendEmail do</td>
                         </tr>
                     
                   
@@ -2209,7 +2396,7 @@ function find(y) {
                         <tr>
                           <td class='line'>7</td>
                           <td class='hits'></td>
-                          <td class='source'>  alias BeExercise.Context.User</td>
+                          <td class='source'>  require Logger</td>
                         </tr>
                     
                   
@@ -2225,7 +2412,7 @@ function find(y) {
                         <tr>
                           <td class='line'>9</td>
                           <td class='hits'></td>
-                          <td class='source'>  require Logger</td>
+                          <td class='source'>  @doc &quot;&quot;&quot;</td>
                         </tr>
                     
                   
@@ -2233,7 +2420,7 @@ function find(y) {
                         <tr>
                           <td class='line'>10</td>
                           <td class='hits'></td>
-                          <td class='source'></td>
+                          <td class='source'>  Send the email of all the active users retrieved from database is called by the oban instance automatically</td>
                         </tr>
                     
                   
@@ -2241,7 +2428,7 @@ function find(y) {
                         <tr>
                           <td class='line'>11</td>
                           <td class='hits'></td>
-                          <td class='source'>  @doc &quot;&quot;&quot;</td>
+                          <td class='source'>  &quot;&quot;&quot;</td>
                         </tr>
                     
                   
@@ -2249,7 +2436,7 @@ function find(y) {
                         <tr>
                           <td class='line'>12</td>
                           <td class='hits'></td>
-                          <td class='source'>  Send the email of all the active users retrieved from database is called by the oban instance automatically</td>
+                          <td class='source'>  @impl Worker</td>
                         </tr>
                     
                   
@@ -2257,39 +2444,39 @@ function find(y) {
                         <tr>
                           <td class='line'>13</td>
                           <td class='hits'></td>
-                          <td class='source'>  &quot;&quot;&quot;</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>14</td>
-                          <td class='hits'></td>
-                          <td class='source'>  @impl Worker</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>15</td>
-                          <td class='hits'></td>
-                          <td class='source'>  def perform(%Oban.Job{}) do</td>
+                          <td class='source'>  def perform(%Oban.Job{args: %{&quot;name&quot; =&gt; name, &quot;id&quot; =&gt; id}}) do</td>
                         </tr>
                     
                   
                     
                         <tr class='hit'>
-                          <td class='line'>16</td>
+                          <td class='line'>14</td>
                           <td class='hits'>1</td>
-                          <td class='source'>    all_active_users =</td>
+                          <td class='source'>    send_email(name, id)</td>
                         </tr>
                       
                   
                     
                         <tr>
+                          <td class='line'>15</td>
+                          <td class='hits'></td>
+                          <td class='source'>  end</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>16</td>
+                          <td class='hits'></td>
+                          <td class='source'></td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
                           <td class='line'>17</td>
                           <td class='hits'></td>
-                          <td class='source'>      User.get_all_active_users_salaries()</td>
+                          <td class='source'>  defp send_email(name, id) do</td>
                         </tr>
                     
                   
@@ -2297,31 +2484,31 @@ function find(y) {
                         <tr>
                           <td class='line'>18</td>
                           <td class='hits'></td>
-                          <td class='source'></td>
+                          <td class='source'>    %{name: name}</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>19</td>
+                          <td class='hits'></td>
+                          <td class='source'>    |&gt; BEChallengex.send_email()</td>
                         </tr>
                     
                   
                     
                         <tr class='hit'>
-                          <td class='line'>19</td>
+                          <td class='line'>20</td>
                           <td class='hits'>1</td>
-                          <td class='source'>    email_not_sent =</td>
+                          <td class='source'>    |&gt; manage_email_response(id)</td>
                         </tr>
                       
                   
                     
                         <tr>
-                          <td class='line'>20</td>
-                          <td class='hits'></td>
-                          <td class='source'>      all_active_users</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
                           <td class='line'>21</td>
                           <td class='hits'></td>
-                          <td class='source'>      |&gt; Task.async_stream(&amp;send_email(&amp;1))</td>
+                          <td class='source'>  end</td>
                         </tr>
                     
                   
@@ -2329,23 +2516,23 @@ function find(y) {
                         <tr>
                           <td class='line'>22</td>
                           <td class='hits'></td>
-                          <td class='source'>      |&gt; Enum.reduce([], fn</td>
+                          <td class='source'></td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>23</td>
+                          <td class='hits'></td>
+                          <td class='source'>  defp manage_email_response({:ok, _}, id) do</td>
                         </tr>
                     
                   
                     
                         <tr class='hit'>
-                          <td class='line'>23</td>
-                          <td class='hits'>5</td>
-                          <td class='source'>        {:ok, _}, acc -&gt; acc</td>
-                        </tr>
-                      
-                  
-                    
-                        <tr class='miss'>
                           <td class='line'>24</td>
-                          <td class='hits'>0</td>
-                          <td class='source'>        {:error, name}, acc -&gt; acc ++ [name]</td>
+                          <td class='hits'>1</td>
+                          <td class='source'>    Logger.info(&quot;Email sent to user_id: #{id}&quot;)</td>
                         </tr>
                       
                   
@@ -2353,7 +2540,7 @@ function find(y) {
                         <tr>
                           <td class='line'>25</td>
                           <td class='hits'></td>
-                          <td class='source'>      end)</td>
+                          <td class='source'>    {:ok, id}</td>
                         </tr>
                     
                   
@@ -2361,7 +2548,7 @@ function find(y) {
                         <tr>
                           <td class='line'>26</td>
                           <td class='hits'></td>
-                          <td class='source'>      |&gt; length()</td>
+                          <td class='source'>  end</td>
                         </tr>
                     
                   
@@ -2374,152 +2561,8 @@ function find(y) {
                     
                   
                     
-                        <tr class='hit'>
+                        <tr>
                           <td class='line'>28</td>
-                          <td class='hits'>1</td>
-                          <td class='source'>    if email_not_sent &gt; 0 do</td>
-                        </tr>
-                      
-                  
-                    
-                        <tr class='miss'>
-                          <td class='line'>29</td>
-                          <td class='hits'>0</td>
-                          <td class='source'>      Logger.warning(&quot;Email on error: #{email_not_sent} of #{length(all_active_users)}&quot;)</td>
-                        </tr>
-                      
-                  
-                    
-                        <tr>
-                          <td class='line'>30</td>
-                          <td class='hits'></td>
-                          <td class='source'>    end</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>31</td>
-                          <td class='hits'></td>
-                          <td class='source'></td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>32</td>
-                          <td class='hits'></td>
-                          <td class='source'>    :ok</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>33</td>
-                          <td class='hits'></td>
-                          <td class='source'>  end</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>34</td>
-                          <td class='hits'></td>
-                          <td class='source'></td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>35</td>
-                          <td class='hits'></td>
-                          <td class='source'>  defp send_email([name, id]) do</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>36</td>
-                          <td class='hits'></td>
-                          <td class='source'>    %{name: name}</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>37</td>
-                          <td class='hits'></td>
-                          <td class='source'>    |&gt; BEChallengex.send_email()</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr class='hit'>
-                          <td class='line'>38</td>
-                          <td class='hits'>5</td>
-                          <td class='source'>    |&gt; manage_email_response(id)</td>
-                        </tr>
-                      
-                  
-                    
-                        <tr>
-                          <td class='line'>39</td>
-                          <td class='hits'></td>
-                          <td class='source'>  end</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>40</td>
-                          <td class='hits'></td>
-                          <td class='source'></td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>41</td>
-                          <td class='hits'></td>
-                          <td class='source'>  defp manage_email_response({:ok, _}, id) do</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr class='hit'>
-                          <td class='line'>42</td>
-                          <td class='hits'>5</td>
-                          <td class='source'>    Logger.info(&quot;Email sent to user_id: #{id}&quot;)</td>
-                        </tr>
-                      
-                  
-                    
-                        <tr>
-                          <td class='line'>43</td>
-                          <td class='hits'></td>
-                          <td class='source'>    {:ok, id}</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>44</td>
-                          <td class='hits'></td>
-                          <td class='source'>  end</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>45</td>
-                          <td class='hits'></td>
-                          <td class='source'></td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>46</td>
                           <td class='hits'></td>
                           <td class='source'>  defp manage_email_response({:error, error}, id) do</td>
                         </tr>
@@ -2527,7 +2570,7 @@ function find(y) {
                   
                     
                         <tr class='miss'>
-                          <td class='line'>47</td>
+                          <td class='line'>29</td>
                           <td class='hits'>0</td>
                           <td class='source'>    Logger.error(&quot;Email NOT sent to user_id: #{id} due to error: #{inspect(error)}&quot;)</td>
                         </tr>
@@ -2535,7 +2578,7 @@ function find(y) {
                   
                     
                         <tr>
-                          <td class='line'>48</td>
+                          <td class='line'>30</td>
                           <td class='hits'></td>
                           <td class='source'>    {:error, id}</td>
                         </tr>
@@ -2543,7 +2586,7 @@ function find(y) {
                   
                     
                         <tr>
-                          <td class='line'>49</td>
+                          <td class='line'>31</td>
                           <td class='hits'></td>
                           <td class='source'>  end</td>
                         </tr>
@@ -2551,7 +2594,7 @@ function find(y) {
                   
                     
                         <tr>
-                          <td class='line'>50</td>
+                          <td class='line'>32</td>
                           <td class='hits'></td>
                           <td class='source'>end</td>
                         </tr>
@@ -2568,7 +2611,7 @@ function find(y) {
               <div id='stats' class='high'>
                 <div class='percentage'>100</div>
                 <div class='sloc'>1</div>
-                <div class='hits'>75</div>
+                <div class='hits'>102</div>
                 <div class='misses'>0</div>
               </div>
               <table id='source'>
@@ -2591,7 +2634,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>1</td>
-                          <td class='hits'>75</td>
+                          <td class='hits'>102</td>
                           <td class='source'>  use Ecto.Repo,</td>
                         </tr>
                       
@@ -2631,7 +2674,7 @@ function find(y) {
               <div id='stats' class='high'>
                 <div class='percentage'>100</div>
                 <div class='sloc'>2</div>
-                <div class='hits'>8</div>
+                <div class='hits'>6</div>
                 <div class='misses'>0</div>
               </div>
               <table id='source'>
@@ -2798,7 +2841,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>19</td>
-                          <td class='hits'>4</td>
+                          <td class='hits'>3</td>
                           <td class='source'>  def static_paths, do: ~w(assets fonts images favicon.ico robots.txt)</td>
                         </tr>
                       
@@ -3526,7 +3569,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>110</td>
-                          <td class='hits'>4</td>
+                          <td class='hits'>3</td>
                           <td class='source'>    apply(__MODULE__, which, [])</td>
                         </tr>
                       
@@ -3557,8 +3600,8 @@ function find(y) {
               <h2 id='lib/be_exercise_web/controllers/email_controller.ex'>lib/be_exercise_web/controllers/email_controller.ex</h2>
               <div id='stats' class='high'>
                 <div class='percentage'>100</div>
-                <div class='sloc'>7</div>
-                <div class='hits'>33</div>
+                <div class='sloc'>10</div>
+                <div class='hits'>52</div>
                 <div class='misses'>0</div>
               </div>
               <table id='source'>
@@ -3630,7 +3673,7 @@ function find(y) {
                         <tr>
                           <td class='line'>7</td>
                           <td class='hits'></td>
-                          <td class='source'>  alias BeExercise.Infrastructure.Oban.SendEmail</td>
+                          <td class='source'>  alias BeExercise.Context.User</td>
                         </tr>
                     
                   
@@ -3638,7 +3681,7 @@ function find(y) {
                         <tr>
                           <td class='line'>8</td>
                           <td class='hits'></td>
-                          <td class='source'></td>
+                          <td class='source'>  alias BeExercise.Infrastructure.Workers.SendEmail</td>
                         </tr>
                     
                   
@@ -3646,7 +3689,7 @@ function find(y) {
                         <tr>
                           <td class='line'>9</td>
                           <td class='hits'></td>
-                          <td class='source'>  alias BeExercise.OpenApi.Response.Email, as: EmailResponse</td>
+                          <td class='source'></td>
                         </tr>
                     
                   
@@ -3654,7 +3697,7 @@ function find(y) {
                         <tr>
                           <td class='line'>10</td>
                           <td class='hits'></td>
-                          <td class='source'>  alias OpenApiSpex.Operation</td>
+                          <td class='source'>  alias BeExercise.OpenApi.Response.Email, as: EmailResponse</td>
                         </tr>
                     
                   
@@ -3662,7 +3705,7 @@ function find(y) {
                         <tr>
                           <td class='line'>11</td>
                           <td class='hits'></td>
-                          <td class='source'></td>
+                          <td class='source'>  alias OpenApiSpex.Operation</td>
                         </tr>
                     
                   
@@ -3670,7 +3713,7 @@ function find(y) {
                         <tr>
                           <td class='line'>12</td>
                           <td class='hits'></td>
-                          <td class='source'>  require Logger</td>
+                          <td class='source'></td>
                         </tr>
                     
                   
@@ -3678,7 +3721,7 @@ function find(y) {
                         <tr>
                           <td class='line'>13</td>
                           <td class='hits'></td>
-                          <td class='source'></td>
+                          <td class='source'>  require Logger</td>
                         </tr>
                     
                   
@@ -3686,7 +3729,7 @@ function find(y) {
                         <tr>
                           <td class='line'>14</td>
                           <td class='hits'></td>
-                          <td class='source'>  action_fallback BeExerciseWeb.FallbackController</td>
+                          <td class='source'></td>
                         </tr>
                     
                   
@@ -3694,7 +3737,7 @@ function find(y) {
                         <tr>
                           <td class='line'>15</td>
                           <td class='hits'></td>
-                          <td class='source'></td>
+                          <td class='source'>  action_fallback BeExerciseWeb.FallbackController</td>
                         </tr>
                     
                   
@@ -3702,7 +3745,7 @@ function find(y) {
                         <tr>
                           <td class='line'>16</td>
                           <td class='hits'></td>
-                          <td class='source'>  @spec open_api_operation(any) :: Operation.t()</td>
+                          <td class='source'></td>
                         </tr>
                     
                   
@@ -3710,39 +3753,39 @@ function find(y) {
                         <tr>
                           <td class='line'>17</td>
                           <td class='hits'></td>
+                          <td class='source'>  @spec open_api_operation(any) :: Operation.t()</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>18</td>
+                          <td class='hits'></td>
                           <td class='source'>  def open_api_operation(action) do</td>
                         </tr>
                     
                   
                     
                         <tr class='hit'>
-                          <td class='line'>18</td>
-                          <td class='hits'>9</td>
+                          <td class='line'>19</td>
+                          <td class='hits'>8</td>
                           <td class='source'>    operation = String.to_existing_atom(&quot;#{action}_operation&quot;)</td>
                         </tr>
                       
                   
                     
                         <tr class='hit'>
-                          <td class='line'>19</td>
-                          <td class='hits'>9</td>
+                          <td class='line'>20</td>
+                          <td class='hits'>8</td>
                           <td class='source'>    apply(__MODULE__, operation, [])</td>
                         </tr>
                       
                   
                     
                         <tr>
-                          <td class='line'>20</td>
-                          <td class='hits'></td>
-                          <td class='source'>  end</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
                           <td class='line'>21</td>
                           <td class='hits'></td>
-                          <td class='source'></td>
+                          <td class='source'>  end</td>
                         </tr>
                     
                   
@@ -3750,7 +3793,7 @@ function find(y) {
                         <tr>
                           <td class='line'>22</td>
                           <td class='hits'></td>
-                          <td class='source'>  @spec invite_users_operation() :: Operation.t()</td>
+                          <td class='source'></td>
                         </tr>
                     
                   
@@ -3758,21 +3801,29 @@ function find(y) {
                         <tr>
                           <td class='line'>23</td>
                           <td class='hits'></td>
+                          <td class='source'>  @spec invite_users_operation() :: Operation.t()</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>24</td>
+                          <td class='hits'></td>
                           <td class='source'>  def invite_users_operation do</td>
                         </tr>
                     
                   
                     
                         <tr class='hit'>
-                          <td class='line'>24</td>
-                          <td class='hits'>9</td>
+                          <td class='line'>25</td>
+                          <td class='hits'>8</td>
                           <td class='source'>    %Operation{</td>
                         </tr>
                       
                   
                     
                         <tr>
-                          <td class='line'>25</td>
+                          <td class='line'>26</td>
                           <td class='hits'></td>
                           <td class='source'>      tags: [&quot;email&quot;],</td>
                         </tr>
@@ -3780,7 +3831,7 @@ function find(y) {
                   
                     
                         <tr>
-                          <td class='line'>26</td>
+                          <td class='line'>27</td>
                           <td class='hits'></td>
                           <td class='source'>      summary: &quot;Invite all the active users&quot;,</td>
                         </tr>
@@ -3788,7 +3839,7 @@ function find(y) {
                   
                     
                         <tr>
-                          <td class='line'>27</td>
+                          <td class='line'>28</td>
                           <td class='hits'></td>
                           <td class='source'>      description: &quot;Send email to all the active users&quot;,</td>
                         </tr>
@@ -3796,7 +3847,7 @@ function find(y) {
                   
                     
                         <tr>
-                          <td class='line'>28</td>
+                          <td class='line'>29</td>
                           <td class='hits'></td>
                           <td class='source'>      operationId: &quot;EmailController.show&quot;,</td>
                         </tr>
@@ -3804,7 +3855,7 @@ function find(y) {
                   
                     
                         <tr>
-                          <td class='line'>29</td>
+                          <td class='line'>30</td>
                           <td class='hits'></td>
                           <td class='source'>      parameters: [],</td>
                         </tr>
@@ -3812,7 +3863,7 @@ function find(y) {
                   
                     
                         <tr>
-                          <td class='line'>30</td>
+                          <td class='line'>31</td>
                           <td class='hits'></td>
                           <td class='source'>      responses: %{</td>
                         </tr>
@@ -3820,7 +3871,7 @@ function find(y) {
                   
                     
                         <tr>
-                          <td class='line'>31</td>
+                          <td class='line'>32</td>
                           <td class='hits'></td>
                           <td class='source'>        202 =&gt; Operation.response(&quot;Email&quot;, &quot;application/json&quot;, EmailResponse)</td>
                         </tr>
@@ -3828,7 +3879,7 @@ function find(y) {
                   
                     
                         <tr>
-                          <td class='line'>32</td>
+                          <td class='line'>33</td>
                           <td class='hits'></td>
                           <td class='source'>      }</td>
                         </tr>
@@ -3836,7 +3887,7 @@ function find(y) {
                   
                     
                         <tr>
-                          <td class='line'>33</td>
+                          <td class='line'>34</td>
                           <td class='hits'></td>
                           <td class='source'>    }</td>
                         </tr>
@@ -3844,17 +3895,9 @@ function find(y) {
                   
                     
                         <tr>
-                          <td class='line'>34</td>
-                          <td class='hits'></td>
-                          <td class='source'>  end</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
                           <td class='line'>35</td>
                           <td class='hits'></td>
-                          <td class='source'></td>
+                          <td class='source'>  end</td>
                         </tr>
                     
                   
@@ -3862,7 +3905,7 @@ function find(y) {
                         <tr>
                           <td class='line'>36</td>
                           <td class='hits'></td>
-                          <td class='source'>  @spec invite_users(Plug.Conn.t(), map()) :: Plug.Conn.t()</td>
+                          <td class='source'></td>
                         </tr>
                     
                   
@@ -3870,7 +3913,7 @@ function find(y) {
                         <tr>
                           <td class='line'>37</td>
                           <td class='hits'></td>
-                          <td class='source'>  def invite_users(conn, _params) do</td>
+                          <td class='source'>  @spec invite_users(Plug.Conn.t(), map()) :: Plug.Conn.t()</td>
                         </tr>
                     
                   
@@ -3878,7 +3921,7 @@ function find(y) {
                         <tr>
                           <td class='line'>38</td>
                           <td class='hits'></td>
-                          <td class='source'>    %{}</td>
+                          <td class='source'>  def invite_users(conn, _params) do</td>
                         </tr>
                     
                   
@@ -3886,7 +3929,7 @@ function find(y) {
                         <tr>
                           <td class='line'>39</td>
                           <td class='hits'></td>
-                          <td class='source'>    |&gt; SendEmail.new()</td>
+                          <td class='source'>    User.get_all_active_users_salaries()</td>
                         </tr>
                     
                   
@@ -3894,31 +3937,31 @@ function find(y) {
                         <tr>
                           <td class='line'>40</td>
                           <td class='hits'></td>
-                          <td class='source'>    |&gt; Oban.insert()</td>
+                          <td class='source'>    |&gt; Enum.map(fn [name, id] -&gt;</td>
                         </tr>
                     
                   
                     
-                        <tr class='hit'>
+                        <tr>
                           <td class='line'>41</td>
-                          <td class='hits'>2</td>
-                          <td class='source'>    |&gt; case do</td>
+                          <td class='hits'></td>
+                          <td class='source'>      %{name: name, id: id}</td>
                         </tr>
-                      
+                    
                   
                     
-                        <tr class='hit'>
+                        <tr>
                           <td class='line'>42</td>
-                          <td class='hits'>1</td>
-                          <td class='source'>      {:ok, _} -&gt; send_resp(conn, 202, &quot;Job scheduled&quot;)</td>
+                          <td class='hits'></td>
+                          <td class='source'>      |&gt; SendEmail.new(unique: true)</td>
                         </tr>
-                      
+                    
                   
                     
                         <tr class='hit'>
                           <td class='line'>43</td>
-                          <td class='hits'>1</td>
-                          <td class='source'>      error -&gt; error</td>
+                          <td class='hits'>14</td>
+                          <td class='source'>      |&gt; Oban.insert()</td>
                         </tr>
                       
                   
@@ -3926,7 +3969,7 @@ function find(y) {
                         <tr>
                           <td class='line'>44</td>
                           <td class='hits'></td>
-                          <td class='source'>    end</td>
+                          <td class='source'>    end)</td>
                         </tr>
                     
                   
@@ -3934,13 +3977,77 @@ function find(y) {
                         <tr>
                           <td class='line'>45</td>
                           <td class='hits'></td>
+                          <td class='source'>    |&gt; Enum.any?(fn</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr class='hit'>
+                          <td class='line'>46</td>
+                          <td class='hits'>1</td>
+                          <td class='source'>      {:ok, _} -&gt; true</td>
+                        </tr>
+                      
+                  
+                    
+                        <tr class='hit'>
+                          <td class='line'>47</td>
+                          <td class='hits'>7</td>
+                          <td class='source'>      _ -&gt; false</td>
+                        </tr>
+                      
+                  
+                    
+                        <tr>
+                          <td class='line'>48</td>
+                          <td class='hits'></td>
+                          <td class='source'>    end)</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr class='hit'>
+                          <td class='line'>49</td>
+                          <td class='hits'>2</td>
+                          <td class='source'>    |&gt; case do</td>
+                        </tr>
+                      
+                  
+                    
+                        <tr class='hit'>
+                          <td class='line'>50</td>
+                          <td class='hits'>1</td>
+                          <td class='source'>      false -&gt; send_resp(conn, 500, &quot;Job not scheduled&quot;)</td>
+                        </tr>
+                      
+                  
+                    
+                        <tr class='hit'>
+                          <td class='line'>51</td>
+                          <td class='hits'>1</td>
+                          <td class='source'>      true -&gt; send_resp(conn, 202, &quot;Job scheduled&quot;)</td>
+                        </tr>
+                      
+                  
+                    
+                        <tr>
+                          <td class='line'>52</td>
+                          <td class='hits'></td>
+                          <td class='source'>    end</td>
+                        </tr>
+                    
+                  
+                    
+                        <tr>
+                          <td class='line'>53</td>
+                          <td class='hits'></td>
                           <td class='source'>  end</td>
                         </tr>
                     
                   
                     
                         <tr>
-                          <td class='line'>46</td>
+                          <td class='line'>54</td>
                           <td class='hits'></td>
                           <td class='source'>end</td>
                         </tr>
@@ -3957,7 +4064,7 @@ function find(y) {
               <div id='stats' class='high'>
                 <div class='percentage'>100</div>
                 <div class='sloc'>1</div>
-                <div class='hits'>3</div>
+                <div class='hits'>2</div>
                 <div class='misses'>0</div>
               </div>
               <table id='source'>
@@ -4068,7 +4175,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>12</td>
-                          <td class='hits'>3</td>
+                          <td class='hits'>2</td>
                           <td class='source'>    %{errors: %{detail: Phoenix.Controller.status_message_from_template(template)}}</td>
                         </tr>
                       
@@ -4097,11 +4204,11 @@ function find(y) {
           
             <div class='file'>
               <h2 id='lib/be_exercise_web/controllers/fallback_controller.ex'>lib/be_exercise_web/controllers/fallback_controller.ex</h2>
-              <div id='stats' class='medium'>
-                <div class='percentage'>66.7</div>
+              <div id='stats' class='terrible'>
+                <div class='percentage'>0</div>
                 <div class='sloc'>3</div>
-                <div class='hits'>2</div>
-                <div class='misses'>1</div>
+                <div class='hits'>0</div>
+                <div class='misses'>3</div>
               </div>
               <table id='source'>
                 <thead>
@@ -4145,9 +4252,9 @@ function find(y) {
                     
                   
                     
-                        <tr class='hit'>
+                        <tr class='miss'>
                           <td class='line'>4</td>
-                          <td class='hits'>1</td>
+                          <td class='hits'>0</td>
                           <td class='source'>  use BeExerciseWeb, :controller</td>
                         </tr>
                       
@@ -4193,9 +4300,9 @@ function find(y) {
                     
                   
                     
-                        <tr class='hit'>
+                        <tr class='miss'>
                           <td class='line'>10</td>
-                          <td class='hits'>1</td>
+                          <td class='hits'>0</td>
                           <td class='source'>    |&gt; render(:error, changeset: changeset)</td>
                         </tr>
                       
@@ -4279,139 +4386,12 @@ function find(y) {
         
           
             <div class='file'>
-              <h2 id='lib/be_exercise_web/controllers/page_controller.ex'>lib/be_exercise_web/controllers/page_controller.ex</h2>
-              <div id='stats' class='high'>
-                <div class='percentage'>100</div>
-                <div class='sloc'>3</div>
-                <div class='hits'>4</div>
-                <div class='misses'>0</div>
-              </div>
-              <table id='source'>
-                <thead>
-                  <tr>
-                    <th>Line</th>
-                    <th>Hits</th>
-                    <th>Source</th>
-                  </tr>
-                <tbody>
-                  
-                    
-                        <tr>
-                          <td class='line'>0</td>
-                          <td class='hits'></td>
-                          <td class='source'>defmodule BeExerciseWeb.PageController do</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr class='hit'>
-                          <td class='line'>1</td>
-                          <td class='hits'>2</td>
-                          <td class='source'>  use BeExerciseWeb, :controller</td>
-                        </tr>
-                      
-                  
-                    
-                        <tr>
-                          <td class='line'>2</td>
-                          <td class='hits'></td>
-                          <td class='source'></td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>3</td>
-                          <td class='hits'></td>
-                          <td class='source'>  action_fallback BeExerciseWeb.FallbackController</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>4</td>
-                          <td class='hits'></td>
-                          <td class='source'></td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>5</td>
-                          <td class='hits'></td>
-                          <td class='source'>  def ping(conn, _params) do</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr class='hit'>
-                          <td class='line'>6</td>
-                          <td class='hits'>1</td>
-                          <td class='source'>    render(conn, :ping)</td>
-                        </tr>
-                      
-                  
-                    
-                        <tr>
-                          <td class='line'>7</td>
-                          <td class='hits'></td>
-                          <td class='source'>  end</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>8</td>
-                          <td class='hits'></td>
-                          <td class='source'></td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>9</td>
-                          <td class='hits'></td>
-                          <td class='source'>  def not_found(conn, _params) do</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr class='hit'>
-                          <td class='line'>10</td>
-                          <td class='hits'>1</td>
-                          <td class='source'>    send_resp(conn, 404, &quot;&quot;)</td>
-                        </tr>
-                      
-                  
-                    
-                        <tr>
-                          <td class='line'>11</td>
-                          <td class='hits'></td>
-                          <td class='source'>  end</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr>
-                          <td class='line'>12</td>
-                          <td class='hits'></td>
-                          <td class='source'>end</td>
-                        </tr>
-                    
-                  
-                </tbody>
-              </table>
-            </div>
-          
-        
-          
-            <div class='file'>
               <h2 id='lib/be_exercise_web/controllers/page_json.ex'>lib/be_exercise_web/controllers/page_json.ex</h2>
-              <div id='stats' class='high'>
-                <div class='percentage'>100</div>
+              <div id='stats' class='terrible'>
+                <div class='percentage'>0</div>
                 <div class='sloc'>1</div>
-                <div class='hits'>1</div>
-                <div class='misses'>0</div>
+                <div class='hits'>0</div>
+                <div class='misses'>1</div>
               </div>
               <table id='source'>
                 <thead>
@@ -4431,9 +4411,9 @@ function find(y) {
                     
                   
                     
-                        <tr class='hit'>
+                        <tr class='miss'>
                           <td class='line'>1</td>
-                          <td class='hits'>1</td>
+                          <td class='hits'>0</td>
                           <td class='source'>  def ping(_assigns) do</td>
                         </tr>
                       
@@ -4473,7 +4453,7 @@ function find(y) {
               <div id='stats' class='high'>
                 <div class='percentage'>100</div>
                 <div class='sloc'>5</div>
-                <div class='hits'>45</div>
+                <div class='hits'>40</div>
                 <div class='misses'>0</div>
               </div>
               <table id='source'>
@@ -4496,7 +4476,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>1</td>
-                          <td class='hits'>9</td>
+                          <td class='hits'>8</td>
                           <td class='source'>  use BeExerciseWeb, :controller</td>
                         </tr>
                       
@@ -4616,7 +4596,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>16</td>
-                          <td class='hits'>9</td>
+                          <td class='hits'>8</td>
                           <td class='source'>    operation = String.to_existing_atom(&quot;#{action}_operation&quot;)</td>
                         </tr>
                       
@@ -4624,7 +4604,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>17</td>
-                          <td class='hits'>9</td>
+                          <td class='hits'>8</td>
                           <td class='source'>    apply(__MODULE__, operation, [])</td>
                         </tr>
                       
@@ -4664,7 +4644,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>22</td>
-                          <td class='hits'>9</td>
+                          <td class='hits'>8</td>
                           <td class='source'>    %Operation{</td>
                         </tr>
                       
@@ -4816,7 +4796,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>41</td>
-                          <td class='hits'>9</td>
+                          <td class='hits'>8</td>
                           <td class='source'>    |&gt; then(&amp;render(conn, :show_users_and_salaries, users: &amp;1))</td>
                         </tr>
                       
@@ -4847,8 +4827,8 @@ function find(y) {
               <h2 id='lib/be_exercise_web/controllers/user_json.ex'>lib/be_exercise_web/controllers/user_json.ex</h2>
               <div id='stats' class='high'>
                 <div class='percentage'>100</div>
-                <div class='sloc'>6</div>
-                <div class='hits'>81</div>
+                <div class='sloc'>4</div>
+                <div class='hits'>77</div>
                 <div class='misses'>0</div>
               </div>
               <table id='source'>
@@ -4895,7 +4875,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>4</td>
-                          <td class='hits'>9</td>
+                          <td class='hits'>8</td>
                           <td class='source'>    %{data: format_for_response(users)}</td>
                         </tr>
                       
@@ -4920,39 +4900,39 @@ function find(y) {
                         <tr>
                           <td class='line'>7</td>
                           <td class='hits'></td>
-                          <td class='source'>  defp format_for_response([] = salaries_list) do</td>
+                          <td class='source'>  defp format_for_response(salaries_list) when is_list(salaries_list) do</td>
                         </tr>
                     
                   
                     
                         <tr class='hit'>
                           <td class='line'>8</td>
-                          <td class='hits'>2</td>
-                          <td class='source'>    Logger.warning(&quot;No user found&quot;)</td>
-                        </tr>
-                      
-                  
-                    
-                        <tr class='hit'>
-                          <td class='line'>9</td>
-                          <td class='hits'>2</td>
-                          <td class='source'>    salaries_list</td>
+                          <td class='hits'>8</td>
+                          <td class='source'>    Logger.info(&quot;#{length(salaries_list)} users found&quot;)</td>
                         </tr>
                       
                   
                     
                         <tr>
-                          <td class='line'>10</td>
+                          <td class='line'>9</td>
                           <td class='hits'></td>
-                          <td class='source'>  end</td>
+                          <td class='source'></td>
                         </tr>
                     
+                  
+                    
+                        <tr class='hit'>
+                          <td class='line'>10</td>
+                          <td class='hits'>8</td>
+                          <td class='source'>    Enum.map(salaries_list, &amp;format_for_response/1)</td>
+                        </tr>
+                      
                   
                     
                         <tr>
                           <td class='line'>11</td>
                           <td class='hits'></td>
-                          <td class='source'></td>
+                          <td class='source'>  end</td>
                         </tr>
                     
                   
@@ -4960,53 +4940,29 @@ function find(y) {
                         <tr>
                           <td class='line'>12</td>
                           <td class='hits'></td>
-                          <td class='source'>  defp format_for_response(salaries_list) do</td>
-                        </tr>
-                    
-                  
-                    
-                        <tr class='hit'>
-                          <td class='line'>13</td>
-                          <td class='hits'>7</td>
-                          <td class='source'>    Logger.info(&quot;#{length(salaries_list)} users found&quot;)</td>
-                        </tr>
-                      
-                  
-                    
-                        <tr>
-                          <td class='line'>14</td>
-                          <td class='hits'></td>
                           <td class='source'></td>
                         </tr>
                     
                   
                     
-                        <tr class='hit'>
-                          <td class='line'>15</td>
-                          <td class='hits'>7</td>
-                          <td class='source'>    Enum.map(salaries_list, fn [name, salary, currency] -&gt;</td>
-                        </tr>
-                      
-                  
-                    
-                        <tr class='hit'>
-                          <td class='line'>16</td>
-                          <td class='hits'>54</td>
-                          <td class='source'>      %{name: name, salary: salary, currency: currency}</td>
-                        </tr>
-                      
-                  
-                    
                         <tr>
-                          <td class='line'>17</td>
+                          <td class='line'>13</td>
                           <td class='hits'></td>
-                          <td class='source'>    end)</td>
+                          <td class='source'>  defp format_for_response(%{name: name, amount: salary, currency: currency}) do</td>
                         </tr>
                     
                   
                     
+                        <tr class='hit'>
+                          <td class='line'>14</td>
+                          <td class='hits'>53</td>
+                          <td class='source'>    %{name: name, salary: salary, currency: currency}</td>
+                        </tr>
+                      
+                  
+                    
                         <tr>
-                          <td class='line'>18</td>
+                          <td class='line'>15</td>
                           <td class='hits'></td>
                           <td class='source'>  end</td>
                         </tr>
@@ -5014,7 +4970,7 @@ function find(y) {
                   
                     
                         <tr>
-                          <td class='line'>19</td>
+                          <td class='line'>16</td>
                           <td class='hits'></td>
                           <td class='source'>end</td>
                         </tr>
@@ -5031,7 +4987,7 @@ function find(y) {
               <div id='stats' class='high'>
                 <div class='percentage'>100</div>
                 <div class='sloc'>1</div>
-                <div class='hits'>13</div>
+                <div class='hits'>10</div>
                 <div class='misses'>0</div>
               </div>
               <table id='source'>
@@ -5054,7 +5010,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>1</td>
-                          <td class='hits'>13</td>
+                          <td class='hits'>10</td>
                           <td class='source'>  use Phoenix.Endpoint, otp_app: :be_exercise</td>
                         </tr>
                       
@@ -6229,7 +6185,7 @@ function find(y) {
               <div id='stats' class='high'>
                 <div class='percentage'>100</div>
                 <div class='sloc'>1</div>
-                <div class='hits'>18</div>
+                <div class='hits'>16</div>
                 <div class='misses'>0</div>
               </div>
               <table id='source'>
@@ -6292,7 +6248,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>6</td>
-                          <td class='hits'>18</td>
+                          <td class='hits'>16</td>
                           <td class='source'>  OpenApiSpex.schema(%{</td>
                         </tr>
                       
@@ -6356,7 +6312,7 @@ function find(y) {
               <div id='stats' class='high'>
                 <div class='percentage'>100</div>
                 <div class='sloc'>1</div>
-                <div class='hits'>18</div>
+                <div class='hits'>16</div>
                 <div class='misses'>0</div>
               </div>
               <table id='source'>
@@ -6443,7 +6399,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>9</td>
-                          <td class='hits'>18</td>
+                          <td class='hits'>16</td>
                           <td class='source'>  OpenApiSpex.schema(%{</td>
                         </tr>
                       
@@ -6523,7 +6479,7 @@ function find(y) {
               <div id='stats' class='medium'>
                 <div class='percentage'>50</div>
                 <div class='sloc'>2</div>
-                <div class='hits'>27</div>
+                <div class='hits'>24</div>
                 <div class='misses'>1</div>
               </div>
               <table id='source'>
@@ -6738,7 +6694,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>25</td>
-                          <td class='hits'>27</td>
+                          <td class='hits'>24</td>
                           <td class='source'>  def schema, do: @schema</td>
                         </tr>
                       
@@ -6770,7 +6726,7 @@ function find(y) {
               <div id='stats' class='high'>
                 <div class='percentage'>100</div>
                 <div class='sloc'>2</div>
-                <div class='hits'>19</div>
+                <div class='hits'>15</div>
                 <div class='misses'>0</div>
               </div>
               <table id='source'>
@@ -6937,7 +6893,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>19</td>
-                          <td class='hits'>4</td>
+                          <td class='hits'>3</td>
                           <td class='source'>  using do</td>
                         </tr>
                       
@@ -7057,7 +7013,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>34</td>
-                          <td class='hits'>15</td>
+                          <td class='hits'>12</td>
                           <td class='source'>    BeExercise.DataCase.setup_sandbox(tags)</td>
                         </tr>
                       
@@ -7097,7 +7053,7 @@ function find(y) {
               <div id='stats' class='medium'>
                 <div class='percentage'>57.1</div>
                 <div class='sloc'>7</div>
-                <div class='hits'>48</div>
+                <div class='hits'>42</div>
                 <div class='misses'>3</div>
               </div>
               <table id='source'>
@@ -7424,7 +7380,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>39</td>
-                          <td class='hits'>20</td>
+                          <td class='hits'>17</td>
                           <td class='source'>    pid = Ecto.Adapters.SQL.Sandbox.start_owner!(BeExercise.Repo, shared: not tags[:async])</td>
                         </tr>
                       
@@ -7432,7 +7388,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>40</td>
-                          <td class='hits'>20</td>
+                          <td class='hits'>17</td>
                           <td class='source'>    on_exit(fn -&gt; Ecto.Adapters.SQL.Sandbox.stop_owner(pid) end)</td>
                         </tr>
                       
@@ -7592,7 +7548,7 @@ function find(y) {
               <div id='stats' class='high'>
                 <div class='percentage'>100</div>
                 <div class='sloc'>3</div>
-                <div class='hits'>39</div>
+                <div class='hits'>38</div>
                 <div class='misses'>0</div>
               </div>
               <table id='source'>
@@ -7671,7 +7627,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>8</td>
-                          <td class='hits'>9</td>
+                          <td class='hits'>8</td>
                           <td class='source'>    %User{name: name}</td>
                         </tr>
                       
@@ -7839,7 +7795,7 @@ function find(y) {
               <div id='stats' class='high'>
                 <div class='percentage'>100</div>
                 <div class='sloc'>4</div>
-                <div class='hits'>42</div>
+                <div class='hits'>41</div>
                 <div class='misses'>0</div>
               </div>
               <table id='source'>
@@ -7942,7 +7898,7 @@ function find(y) {
                     
                         <tr class='hit'>
                           <td class='line'>11</td>
-                          <td class='hits'>9</td>
+                          <td class='hits'>8</td>
                           <td class='source'>    |&gt; Repo.insert!()</td>
                         </tr>
                       

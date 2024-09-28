@@ -4,7 +4,7 @@ defmodule BeExerciseWeb.EmailControllerTest do
 
   import Mock
 
-  alias BeExercise.Infrastructure.Oban.SendEmail
+  alias BeExercise.Infrastructure.Workers.SendEmail
 
   describe "POST /invite-users" do
     test "email job is successfully scheduled", %{conn: conn} do

@@ -35,26 +35,7 @@ defmodule BeExerciseWeb.UserControllerTest do
       assert_schema(response, "UserResponse", api_spec)
     end
 
-    test "check that the response is containing just names starting with \"D\" ", %{conn: conn} do
-      _user = Fixtures.insert_user("davide")
-      search_param = "D"
-      conn = get(conn, ~p"/users?name=#{search_param}")
-      response = Jason.decode!(conn.resp_body)
-      api_spec = BeExercise.ApiSpec.spec()
-
-      assert json_response(conn, 200)
-
-      assert Enum.all?(
-               response["data"],
-               &(&1["name"]
-                 |> String.downcase()
-                 |> String.starts_with?(String.downcase(search_param)))
-             )
-
-      assert_schema(response, "UserResponse", api_spec)
-    end
-
-    test "check that the response is containing just name starting with \"d\" and ordered by desc ",
+    test "filters users regardless of the name query being upper or lower case and ordered by desc ",
          %{conn: conn} do
       _user = Fixtures.insert_user("davide")
 

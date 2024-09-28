@@ -1,11 +1,9 @@
-defmodule BeExercise.Infrastructure.Oban.SendEmail do
+defmodule BeExercise.Infrastructure.Workers.SendEmail do
   @moduledoc """
       Module created to send email through oban using the BEChallengex library
       and retrieving data from database
   """
   use Oban.Worker, queue: :users_invitations
-
-  alias BeExercise.Context.User
 
   require Logger
 
@@ -13,27 +11,11 @@ defmodule BeExercise.Infrastructure.Oban.SendEmail do
   Send the email of all the active users retrieved from database is called by the oban instance automatically
   """
   @impl Worker
-  def perform(%Oban.Job{}) do
-    all_active_users =
-      User.get_all_active_users_salaries()
-
-    email_not_sent =
-      all_active_users
-      |> Task.async_stream(&send_email(&1))
-      |> Enum.reduce([], fn
-        {:ok, _}, acc -> acc
-        {:error, name}, acc -> acc ++ [name]
-      end)
-      |> length()
-
-    if email_not_sent > 0 do
-      Logger.warning("Email on error: #{email_not_sent} of #{length(all_active_users)}")
-    end
-
-    :ok
+  def perform(%Oban.Job{args: %{"name" => name, "id" => id}}) do
+    send_email(name, id)
   end
 
-  defp send_email([name, id]) do
+  defp send_email(name, id) do
     %{name: name}
     |> BEChallengex.send_email()
     |> manage_email_response(id)
