@@ -2,8 +2,8 @@ defmodule BeExercise.Factory do
   @moduledoc """
   Module to help in the tests to create structs passing some data
   """
-  alias BeExercise.Entity.Salary
-  alias BeExercise.Entity.User
+  alias BeExercise.Schema.Salary
+  alias BeExercise.Schema.User
 
   def create_user(name) do
     %User{name: name}

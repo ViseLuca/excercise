@@ -52,8 +52,8 @@ defmodule Helpers do
   end
 end
 
-alias BeExercise.Entity.Salary
-alias BeExercise.Entity.User
+alias BeExercise.Schema.Salary
+alias BeExercise.Schema.User
 alias BeExercise.Enum.Currencies
 alias BeExercise.Repo
 
@@ -107,7 +107,7 @@ salaries
   }
 )
 |> Enum.chunk_every(5000)
-|> Enum.map(&Repo.insert_all(Salary, &1))
+|> Enum.map(&Salary.create_salary(Salary, &1))
 |> Enum.reduce([], fn
   {_, nil}, acc -> acc
   {_, error}, acc -> acc ++ [error]

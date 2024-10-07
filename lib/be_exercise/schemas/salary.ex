@@ -1,11 +1,13 @@
-defmodule BeExercise.Entity.Salary do
+defmodule BeExercise.Schema.Salary do
   @moduledoc """
   Schema for Salaries table
   """
 
   use Ecto.Schema
 
-  alias BeExercise.Entity.User
+  import Ecto.Changeset
+
+  alias BeExercise.Schema.User
 
   @type t :: %__MODULE__{
           amount: pos_integer(),
@@ -26,5 +28,16 @@ defmodule BeExercise.Entity.Salary do
     belongs_to :users, User
 
     timestamps()
+  end
+
+  def changeset(salary, attrs) do
+    salary
+    |> cast(attrs, [:amount, :currency, :active])
+    |> validate_required([:amount, :currency, :active])
+    |> check_constraint(:amount, name: :amount_cannot_be_negative)
+    |> unique_constraint(:user_id,
+      name: :just_one_active_salary,
+      message: "multiple active salaries are not allowed"
+    )
   end
 end

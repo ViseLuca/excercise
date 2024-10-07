@@ -82,7 +82,6 @@ defmodule BeExerciseWeb.UserControllerTest do
       response = Jason.decode!(conn.resp_body)
       api_spec = BeExercise.ApiSpec.spec()
 
-
       assert json_response(conn, 422)
       assert_schema(response, "UserResponse", api_spec)
     end

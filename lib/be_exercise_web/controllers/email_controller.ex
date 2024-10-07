@@ -5,7 +5,7 @@ defmodule BeExerciseWeb.EmailController do
 
   import Plug.Conn
 
-  alias BeExercise.Context.User
+  alias BeExercise.Payroll.User
   alias BeExercise.Infrastructure.Workers.SendEmail
 
   alias BeExercise.OpenApi.Response.Email, as: EmailResponse
@@ -42,7 +42,7 @@ defmodule BeExerciseWeb.EmailController do
       |> Enum.chunk_every(5000)
       |> Enum.map(
         &(&1
-          |> Enum.map(fn [name, id] ->
+          |> Enum.map(fn %{name: name, id: id} ->
             %{name: name, id: id}
             |> SendEmail.new(unique: true)
           end)

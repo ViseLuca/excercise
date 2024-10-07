@@ -1,4 +1,4 @@
-defmodule BeExercise.Context.Salary do
+defmodule BeExercise.Payroll.Salary do
   @moduledoc """
       The Salary context.
   """
@@ -9,8 +9,8 @@ defmodule BeExercise.Context.Salary do
 
   import Ecto.Query
 
-  alias BeExercise.Entity.Salary
-  alias BeExercise.Entity.User
+  alias BeExercise.Schema.Salary
+  alias BeExercise.Schema.User
   alias BeExercise.Repo
 
   @doc """
@@ -86,4 +86,14 @@ defmodule BeExercise.Context.Salary do
       |> order_by_clause()
 
   defp order_by_clause(nil, column), do: {:asc, column}
+
+  @type args :: %{amount: integer, currency: String.t(), status: :active | :inactive}
+
+  @spec create_salary(User.t(), args) :: {:ok, Salary.t()} | {:error, Changeset.t()}
+  def create_salary(%User{} = user, attrs) do
+    %Salary{}
+    |> Salary.changeset(attrs)
+    |> Ecto.Changeset.put_assoc(:user, user)
+    |> Repo.insert()
+  end
 end

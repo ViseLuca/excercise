@@ -3,7 +3,7 @@ defmodule Unit.BeExercise.UsersTest do
 
   use BeExercise.DataCase, async: true
 
-  alias BeExercise.Context.User
+  alias BeExercise.Payroll.User
   alias BeExercise.Fixtures
 
   describe "Users extractions" do
@@ -16,19 +16,15 @@ defmodule Unit.BeExercise.UsersTest do
 
       response = User.get_all_active_users_salaries()
 
-      assert 0 ===
-               response
-               |> Enum.filter(fn elem ->
-                 elem |> List.first() |> Kernel.==("Gabriele")
-               end)
-               |> length()
+      assert 0 === count_users(response, "Gabriele")
 
-      assert 1 ===
-               response
-               |> Enum.filter(fn elem ->
-                 elem |> List.first() |> Kernel.==("Luca")
-               end)
-               |> length()
+      assert 1 === count_users(response, "Luca")
     end
+  end
+
+  defp count_users(response, expected_name) do
+    response
+    |> Enum.filter(fn %{name: name} -> name === expected_name end)
+    |> length()
   end
 end

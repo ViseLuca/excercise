@@ -1,11 +1,13 @@
-defmodule BeExercise.Entity.User do
+defmodule BeExercise.Schema.User do
   @moduledoc """
   Schema for Users table
   """
 
   use Ecto.Schema
 
-  alias BeExercise.Entity.Salary
+  import Ecto.Changeset
+
+  alias BeExercise.Schema.Salary
 
   @type t :: %__MODULE__{
           name: String.t(),
@@ -18,5 +20,12 @@ defmodule BeExercise.Entity.User do
     has_many :salaries, Salary
 
     timestamps()
+  end
+
+  @doc false
+  def changeset(user, attrs) do
+    user
+    |> cast(attrs, [:name])
+    |> validate_required([:name])
   end
 end
